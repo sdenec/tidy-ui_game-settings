@@ -12,3 +12,16 @@ You now can click the Option section you want to set instead of klicking the tin
 
 ## Installation
 See https://github.com/foundry-vtt-community/wiki/wiki/Modules#installing-modules. Open the Add-on Modules tab in the Configuration and Setup dialog. Click Install Module, paste https://raw.githubusercontent.com/sdenec/fvtt-uii_game-settings/master/module.json in as the Manifest URL, then click Install.
+
+## Preview
+![Sidebar](/preview/sidebar.jpg)
+
+![Module Management](/preview/module_management.jpg)
+
+![Settings - Core](/preview/core.jpg)
+
+![Settings - System](/preview/system.jpg)
+
+![Settings - Modules (compressed)](/preview/mod_compressed.jpg)
+
+![Settings - Modules (expanded)](/preview/mod-expanded.jpg)
