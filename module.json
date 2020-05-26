@@ -10,5 +10,8 @@
   "styles": [
   	"./styles/fvtt-uii_game-settings.css"
   ],
-  "esmodules": ["fvtt-uii_game-settings.js"]
+  "esmodules": ["fvtt-uii_game-settings.js"],
+  "url": "https://github.com/sdenec/fvtt-uii_game-settings",
+  "manifest": "https://raw.githubusercontent.com/sdenec/fvtt-uii_game-settings/master/module.json",
+  "download": "https://github.com/sdenec/fvtt-uii_game-settings/raw/master/fvtt-uii_game-settings.zip"
 }
