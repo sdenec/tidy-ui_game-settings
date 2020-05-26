@@ -16,7 +16,7 @@ See https://github.com/foundry-vtt-community/wiki/wiki/Modules#installing-module
 ## Preview
 ![Sidebar](/preview/sidebar.jpg)
 
-![Module Management](/preview/module_management.jpg)
+![Module Management](/preview/module-management.jpg)
 
 ![Settings - Core](/preview/core.jpg)
 
