@@ -1,0 +1,14 @@
+{
+  "name": "fvtt-uii_game-settings",
+  "title": "FVTT UII - Game Settings",
+  "description": "User Interface Improvements for Game Settings Window",
+  "author": "sdenec",
+  "version": "0.1.0",
+  "minimumCoreVersion": "0.6.0",
+  "compatibleCoreVersion": "0.6.0",
+  "system": "dnd5e",
+  "styles": [
+  	"./styles/fvtt-uii_game-settings.css"
+  ],
+  "esmodules": ["fvtt-uii_game-settings.js"]
+}
