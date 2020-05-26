@@ -22,9 +22,14 @@ Hooks.on("renderSettingsConfig", (app, html) => {
    	$(this).next('.module-settings-wrapper').slideToggle(300);
    });
 
-   $('.form-group').on('click', function(){
-    console.log('click');
-    var checkbox = $(this).find('input[type="checkbox"]');
+   $('.form-group label').each(function(){
+    if( $(this).next('div').find('input[type="checkbox"]').length ){
+      $(this).wrapInner('<span>')
+    }
+   });
+
+   $('.form-group label span').on('click', function(){
+    var checkbox = $(this).parent().parent().find('input[type="checkbox"]');
     checkbox.prop("checked", !checkbox.prop("checked"));
    });
 
