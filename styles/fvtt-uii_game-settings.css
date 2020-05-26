@@ -57,6 +57,10 @@
   transform-origin: 0 50%;
 }
 
+#client-settings {
+  min-height: 100vh;
+}
+
 #client-settings.window-app .window-content {
   padding: 0;
 }
@@ -93,6 +97,11 @@
   line-height: 1.2;
   margin: 0 0 .25rem calc(13px + 1rem);
   order: -1;
+}
+
+#client-settings form .form-group label span,
+#client-settings section.content .submenu > label span {
+  cursor: pointer;
 }
 
 #client-settings form .form-group .form-fields {
@@ -181,10 +190,12 @@
   position: absolute;
   top: .6rem;
   left: 1rem;
+  cursor: pointer;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group button {
   margin: 0 0 .25rem calc(13px + 1rem);
+  cursor: pointer;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group .form-field button {
@@ -202,6 +213,7 @@
   flex-basis: 50%;
   min-width: unset;
   width: unset;
+  cursor: pointer;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group input[type="text"] {
