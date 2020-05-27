@@ -1,47 +1,98 @@
+// hook on Settings Config Window
 Hooks.on("renderSettingsConfig", (app, html) => {
   let active = html.find('.tab[data-tab="modules"] .settings-list');
   let list = '.tab[data-tab="modules"] .settings-list';
 
+  // wrap separat module settings
  	$(':not(.form-group) + .form-group, * > .form-group:first-of-type').
-   each(function() {
-     $(this).
-         nextUntil(':not(.form-group)').
-         addBack().
-         wrapAll('<section class="module-settings-wrapper" />');
-   });
+    each(function() {
+      $(this).
+        nextUntil(':not(.form-group)').
+        addBack().
+        wrapAll('<section class="module-settings-wrapper" />');
+    });
 
-   let icon = "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>";
+  // wrap module header and settings
+  $(".module-header").each( function () {
+    $(this).next('.module-settings-wrapper').addBack().wrapAll('<article class="module-wrapper"></article>');
+  });
 
-   $('h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
+  // sorting
+  // clean module names
+  let title = html.find('.module-header');
+  title.each(function(){
+    var titleString = $(this).text();
+    var cleanString = titleString.toLowerCase().replace(/[^\w\s]/g,'').replace(/  /g,' ').replace(/ /g,'-');
+    $(this).closest('.module-wrapper').attr('data-sort-name', cleanString);
+  });
 
-   $('.module-header').next('.module-settings-wrapper').hide();
+  // sort by displayed module name
+  function Ascending_sort(a, b) { 
+      return ($(b).attr('data-sort-name').toUpperCase()) <  
+          ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
+  } 
 
-   $('.module-header').on('click', function(){
+  $(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.settings-list'); 
+
+
+  // add toggle icon
+  let icon = "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>";
+  $('h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
+
+  // hide module settings
+  $('.module-header').next('.module-settings-wrapper').hide();
+
+  // toggle settings on click
+  $('.module-header').on('click', function(){
     $(this).toggleClass('open');
-   	$(this).next('.module-settings-wrapper').slideToggle(300);
-   });
+  	$(this).next('.module-settings-wrapper').slideToggle(300);
+  });
 
-   $('.form-group label').each(function(){
+  // toggle checkboxes
+  $('.form-group label').each(function(){
     if( $(this).next('div').find('input[type="checkbox"]').length ){
       $(this).wrapInner('<span>')
     }
-   });
+  });
 
-   $('.form-group label span').on('click', function(){
+  $('.form-group label span').on('click', function(){
     var checkbox = $(this).parent().parent().find('input[type="checkbox"]');
     checkbox.prop("checked", !checkbox.prop("checked"));
-   });
+  });
 
 });
 
+// hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
   let form = html.find('form');
-  let button = '<button class="toggle-infos">Toggle Module Information</button>';
+  let disable = '<button class="disable-all-modules">CAREFUL! Disable ALL but VTT UII modules (manually save settings)!</button>';
+  let infos = '<button class="toggle-infos">Toggle Module Information</button>';
   
-  form.prepend(button);
+  // add buttons
+  form.prepend(infos);
+  form.prepend(disable);
 
+  let disableAll = html.find('.disable-all-modules');
   let toggleInfos = html.find('.toggle-infos');
+
+  // sorting
+  // clean module names
   let title = html.find('.package-title');
+  title.each(function(){
+    var titleString = $(this).text();
+    var cleanString = titleString.toLowerCase().replace(/[^\w\s]/g,'').replace(/  /g,' ').replace(/ /g,'-');
+    $(this).closest('.package').attr('data-sort-name', cleanString);
+  });
+
+  // sort by displayed module name
+  function Ascending_sort(a, b) { 
+      return ($(b).attr('data-sort-name').toUpperCase()) <  
+          ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
+  } 
+
+  $("#module-list li.package").sort(Ascending_sort).appendTo('#module-list'); 
+
+  // checkbox toggle
   title.wrapInner('<span>');
 
   let inputTrigger = html.find('.package-title span');
@@ -52,16 +103,24 @@ Hooks.on("renderModuleManagement", (app, html) => {
   packageDescription.hide();
   form.addClass('infos-compressed');
 
-
   inputTrigger.on('click', function(){
     var checkbox = $(this).parent().siblings('input[type="checkbox"]');
     checkbox.prop("checked", !checkbox.prop("checked"));
   });
 
+  // toggle infos
   toggleInfos.on('click', function(e){
     e.preventDefault();
     form.toggleClass('infos-compressed');
     packageMetadata.toggle();
     packageDescription.toggle();
   });
+
+  // remove all checkboxes except fvtt uii
+  disableAll.on('click', function(e){
+    e.preventDefault();
+    var checkbox = $('#module-management').find('.package:not([data-module-name="fvtt-uii_game-settings"]):not([data-module-name="fvtt-uii"]) input[type="checkbox"]');
+    checkbox.prop("checked", false);
+  });
+
 });

@@ -12,6 +12,8 @@ Module Settings in the Settings Tab start collapsed and are expandable so you do
 
 You now can click the titles to check a box (of course the checkbox itself also works).
 
+All Modules in the Manager and Settings Tab are sorted by their displayed name!
+
 Not really a feature but I decided to restyle the checkboxes for the settings (on chrome) as google seems to have changed its appearance to a bright blue when selected. Not really fitting for foundry's look^^
 
 ## Installation

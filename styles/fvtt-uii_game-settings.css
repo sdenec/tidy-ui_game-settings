@@ -306,7 +306,7 @@
 
 #module-management .package-list {
   padding: 0 1rem 1rem 1rem;
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 224px);
 }
 
 #module-management .package-list .package {
@@ -362,6 +362,12 @@
 #module-management .package-title span,
 #module-management button {
   cursor: pointer;
+}
+
+#module-management .disable-all-modules {
+  background: rgba(255,0,0,.3);
+  border-width: 2px groove rgba(255,0,0,.5);
+  margin-bottom: 8px;
 }
 
 /* Module Settings List */
