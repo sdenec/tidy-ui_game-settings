@@ -1,5 +1,4 @@
 Hooks.on("renderSettingsConfig", (app, html) => {
-  console.log('settings-ready!');
   let active = html.find('.tab[data-tab="modules"] .settings-list');
   let list = '.tab[data-tab="modules"] .settings-list';
 
@@ -33,4 +32,36 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     checkbox.prop("checked", !checkbox.prop("checked"));
    });
 
+});
+
+Hooks.on("renderModuleManagement", (app, html) => {
+  let form = html.find('form');
+  let button = '<button class="toggle-infos">Toggle Module Information</button>';
+  
+  form.prepend(button);
+
+  let toggleInfos = html.find('.toggle-infos');
+  let title = html.find('.package-title');
+  title.wrapInner('<span>');
+
+  let inputTrigger = html.find('.package-title span');
+  let packageMetadata = html.find('.package-metadata');
+  let packageDescription = html.find('.package-description');
+
+  packageMetadata.hide();
+  packageDescription.hide();
+  form.addClass('infos-compressed');
+
+
+  inputTrigger.on('click', function(){
+    var checkbox = $(this).parent().siblings('input[type="checkbox"]');
+    checkbox.prop("checked", !checkbox.prop("checked"));
+  });
+
+  toggleInfos.on('click', function(e){
+    e.preventDefault();
+    form.toggleClass('infos-compressed');
+    packageMetadata.toggle();
+    packageDescription.toggle();
+  });
 });
