@@ -364,10 +364,25 @@
   cursor: pointer;
 }
 
+
+#module-management .mass-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
 #module-management .disable-all-modules {
   background: rgba(255,0,0,.3);
   border-width: 2px groove rgba(255,0,0,.5);
-  margin-bottom: 8px;
+  margin-right: .25rem;
+  flex: 1;
+}
+
+#module-management .enable-all-modules {
+  background: rgba(0,255,0,.3);
+  border-width: 2px groove rgba(0,255,0,.5);
+  margin-left: .25rem;
+  flex: 1;
 }
 
 /* Module Settings List */

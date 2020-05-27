@@ -1,5 +1,10 @@
+// set up array for toggles modules
+var expandedModules = [];
+
 // hook on Settings Config Window
 Hooks.on("renderSettingsConfig", (app, html) => {
+
+
   let active = html.find('.tab[data-tab="modules"] .settings-list');
   let list = '.tab[data-tab="modules"] .settings-list';
 
@@ -32,7 +37,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
           ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
   } 
 
-  $(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.settings-list'); 
+  $(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.tab[data-tab="modules"] .settings-list');
 
 
   // add toggle icon
@@ -45,6 +50,11 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   // toggle settings on click
   $('.module-header').on('click', function(){
     $(this).toggleClass('open');
+    //
+    // store module name in array
+    var moduleName = $(this).closest('.module-wrapper').attr('data-sort-name');
+    storeExpandedModule(moduleName);
+    //
   	$(this).next('.module-settings-wrapper').slideToggle(300);
   });
 
@@ -60,19 +70,43 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     checkbox.prop("checked", !checkbox.prop("checked"));
   });
 
+  // Restore logged modules
+  if(expandedModules.length > 0){
+    // console.log('something in array');
+    for(var i=0; i<expandedModules.length; i++){
+      var moduleToExpand = expandedModules[i];
+      $('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-header').addClass('open');
+      $('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-settings-wrapper').show();
+    }
+  }
+
+  // Store expanded modules
+  function storeExpandedModule(moduleName){
+    if(expandedModules.includes(moduleName)){
+      var index = expandedModules.indexOf(moduleName);
+      expandedModules.splice(index,1);
+    } else {
+      expandedModules.push(moduleName);
+    }
+  }
+
 });
 
 // hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
   let form = html.find('form');
-  let disable = '<button class="disable-all-modules">CAREFUL! Disable ALL but VTT UII modules (manually save settings)!</button>';
+  let disable = '<button class="disable-all-modules">Uncheck all but VTT UII modules</button>';
+  let enable = '<button class="enable-all-modules">Check all modules</button>';
   let infos = '<button class="toggle-infos">Toggle Module Information</button>';
   
   // add buttons
   form.prepend(infos);
-  form.prepend(disable);
+  form.prepend('<div class="mass-toggle"></div>');
+
+  form.find('.mass-toggle').append(disable).append(enable);
 
   let disableAll = html.find('.disable-all-modules');
+  let enableAll = html.find('.enable-all-modules');
   let toggleInfos = html.find('.toggle-infos');
 
   // sorting
@@ -121,6 +155,13 @@ Hooks.on("renderModuleManagement", (app, html) => {
     e.preventDefault();
     var checkbox = $('#module-management').find('.package:not([data-module-name="fvtt-uii_game-settings"]):not([data-module-name="fvtt-uii"]) input[type="checkbox"]');
     checkbox.prop("checked", false);
+  });
+
+  // set all checkboxes
+  enableAll.on('click', function(e){
+    e.preventDefault();
+    var checkbox = $('#module-management').find('.package input[type="checkbox"]');
+    checkbox.prop("checked", true);
   });
 
 });
