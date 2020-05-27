@@ -389,3 +389,23 @@
 #client-settings section.content .settings-list {
   max-height: calc(100vh - 130px);
 }
+
+/* VTTA Patch */
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group {
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group label {
+  flex-basis: 100% !important;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group button {
+  order: initial !important;
+  flex-basis: initial !important;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group input[type="text"] {
+  font-size: inherit !important;
+}

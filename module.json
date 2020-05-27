@@ -3,7 +3,7 @@
   "title": "FVTT UII - Game Settings",
   "description": "User Interface Improvements for Game Settings Window",
   "author": "sdenec",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.0",
   "system": "dnd5e",
