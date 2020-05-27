@@ -366,5 +366,5 @@
 
 /* Module Settings List */
 #client-settings section.content .settings-list {
-  max-height: unset;
+  max-height: calc(100vh - 130px);
 }
