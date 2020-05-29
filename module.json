@@ -1,17 +1,17 @@
 {
-  "name": "fvtt-uii_game-settings",
-  "title": "FVTT UII - Game Settings",
-  "description": "User Interface Improvements for Game Settings Window",
+  "name": "tidy-ui_game-settings",
+  "title": "Tidy UI - Game Settings",
+  "description": "User Interface Improvements for the Game Settings Window",
   "author": "sdenec",
   "version": "0.1.5",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.0",
   "system": "dnd5e",
   "styles": [
-  	"./styles/fvtt-uii_game-settings.css"
+  	"./styles/tidy-ui_game-settings.css"
   ],
-  "esmodules": ["fvtt-uii_game-settings.js"],
-  "url": "https://github.com/sdenec/fvtt-uii_game-settings",
-  "manifest": "https://raw.githubusercontent.com/sdenec/fvtt-uii_game-settings/master/module.json",
-  "download": "https://github.com/sdenec/fvtt-uii_game-settings/raw/master/fvtt-uii_game-settings.zip"
+  "esmodules": ["tidy-ui_game-settings.js"],
+  "url": "https://github.com/sdenec/tidy-ui_game-settings",
+  "manifest": "https://raw.githubusercontent.com/sdenec/tidy-ui_game-settings/master/module.json",
+  "download": "https://github.com/sdenec/tidy-ui_game-settings/raw/master/tidy-ui_game-settings.zip"
 }
