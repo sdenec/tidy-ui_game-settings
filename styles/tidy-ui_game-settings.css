@@ -185,12 +185,16 @@
   padding: 1rem;
 }
 
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header {
+#client-settings.app.window-app.form #config-tabs .tab[data-tab="modules"] .settings-list h2.module-header {
   padding-bottom: .25rem;
   margin: 1.5rem 0 .5rem 0;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+}
+
+#client-settings.app.window-app.form #config-tabs .settings-list .module-wrapper:first-of-type h2.module-header {
+  margin-top: 0;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list h2.module-header span {
@@ -205,18 +209,6 @@
 
 #client-settings.app.window-app.form #config-tabs .settings-list h2.module-header.open span .fa-minus-square {
   display: unset;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header {
-  padding-bottom: .25rem;
-  margin: 1.5rem 0 .5rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header:first-of-type {
-  margin-top: 0;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group input[type="checkbox"] {
