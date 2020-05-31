@@ -95,7 +95,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 // hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
   let form = html.find('form');
-  let disable = '<button class="disable-all-modules">Uncheck all but VTT UII modules</button>';
+  let disable = '<button class="disable-all-modules">Uncheck all but Tidy UI modules</button>';
   let enable = '<button class="enable-all-modules">Check all modules</button>';
   let infos = '<button class="toggle-infos">Toggle Module Information</button>';
   
