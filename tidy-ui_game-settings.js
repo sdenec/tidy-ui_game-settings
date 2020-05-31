@@ -18,13 +18,13 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     });
 
   // wrap module header and settings
-  $(".module-header").each( function () {
+  $('.tab[data-tab="modules"] .module-header').each( function () {
     $(this).next('.module-settings-wrapper').addBack().wrapAll('<article class="module-wrapper"></article>');
   });
 
   // sorting
   // clean module names
-  let title = html.find('.module-header');
+  let title = html.find('.tab[data-tab="modules"] .module-header');
   title.each(function(){
     var titleString = $(this).text();
     var cleanString = titleString.toLowerCase().replace(/[^\w\s]/g,'').replace(/  /g,' ').replace(/ /g,'-');
@@ -42,13 +42,13 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 
   // add toggle icon
   let icon = "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>";
-  $('h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
+  $('.tab[data-tab="modules"] h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
 
   // hide module settings
-  $('.module-header').next('.module-settings-wrapper').hide();
+  $('.tab[data-tab="modules"] .module-header').next('.module-settings-wrapper').hide();
 
   // toggle settings on click
-  $('.module-header').on('click', function(){
+  $('.tab[data-tab="modules"] .module-header').on('click', function(){
     $(this).toggleClass('open');
     //
     // store module name in array
@@ -95,7 +95,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 // hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
   let form = html.find('form');
-  let disable = '<button class="disable-all-modules">Uncheck all but VTT UII modules</button>';
+  let disable = '<button class="disable-all-modules">Uncheck all but Tidy UI modules</button>';
   let enable = '<button class="enable-all-modules">Check all modules</button>';
   let infos = '<button class="toggle-infos">Toggle Module Information</button>';
   
