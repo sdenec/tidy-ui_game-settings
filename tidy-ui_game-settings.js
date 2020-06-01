@@ -90,6 +90,10 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     }
   }
 
+  if (game.settings.get("tidy-ui_game-settings", "moduleSettingsActive")) {
+    app._tabs[0].activate("modules");
+  };
+
 });
 
 // hook on Module Management Window
@@ -164,4 +168,16 @@ Hooks.on("renderModuleManagement", (app, html) => {
     checkbox.prop("checked", true);
   });
 
+});
+
+Hooks.once("init", () => {
+  console.log('activation tidy ui settings');
+  game.settings.register("tidy-ui_game-settings", "moduleSettingsActive", {
+    name: "Always activate the Module Settings Tab",
+    hint: "If you happen to visit the Module Settings often you might want to set this option so you don't have to click to activate the Module Settings Tab.",
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean
+  });
 });
