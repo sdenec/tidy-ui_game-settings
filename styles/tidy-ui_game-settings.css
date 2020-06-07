@@ -230,9 +230,10 @@
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group button.file-picker {
-  margin: 0 0 0 .5rem;
+  margin: 0;
   line-height: 20px;
   border: 1px solid #111;
+  width: 40px;
 }
 
 #client-settings.app.window-app.form #config-tabs .settings-list div.form-group select {
