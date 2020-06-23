@@ -180,6 +180,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
 
   // export module list
   let modules = '';
+  let moduleList = ''
 
   let exportButton = form.find('.modules-export');
   let importButton = form.find('.modules-import');
@@ -189,13 +190,15 @@ Hooks.on("renderModuleManagement", (app, html) => {
 
   exportButton.on('click', function(e){
     e.preventDefault();
-    let moduleList = $('#module-list input[checked]');
+    modules = '';
+    moduleList = $('#module-list input[checked]');
 
     for(let i = 0; i < moduleList.length; i++){
       modules += moduleList[i].attributes.name.value+';';
     }
 
     $('#importExportModal').removeClass().addClass('export').find('#modalIO').val(modules);
+
     $('#importExportModal').fadeIn();
   });
 
