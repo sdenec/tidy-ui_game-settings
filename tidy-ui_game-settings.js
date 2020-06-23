@@ -102,11 +102,21 @@ Hooks.on("renderModuleManagement", (app, html) => {
   let disable = '<button class="disable-all-modules">Uncheck all but Tidy UI modules</button>';
   let enable = '<button class="enable-all-modules">Check all modules</button>';
   let infos = '<button class="toggle-infos">Toggle Module Information</button>';
-  
+  let exportBtn = '<button class="modules-export" title="Export Active Module List"><i class="fas fa-file-export"></i></button>';
+  let importBtn = '<button class="modules-import" title="Import Module List"><i class="fas fa-file-import"></i></button>';
+  let exportClose = '<button class="modules-export-copy">Copy to Clipboard</button>';
+  let importConfirm = '<button class="modules-import-confirm">Activate Modules</button>';
+  let searchField = '<div id="searchField">This space is dedicated to @Norc ... until the next update ;)</div>'
+  let modalExport = '<div id="importExportModal"><div class="modal-wrap"><span id="close" title="close window"><i class="fas fa-times"></i></span><div id="exportToast"><p>Module list copied to clipboard - remember to save it!</p></div><textarea spellcheck="false" id="modalIO" placeholder="Paste your stored modules list here!"></textarea></div></div>';
+
   // add buttons
+  form.prepend(modalExport);
+  form.find('#importExportModal .modal-wrap').append(exportClose).append(importConfirm);
   form.prepend(infos);
+  form.prepend('<div class="enhanced-module-management"></div>');
   form.prepend('<div class="mass-toggle"></div>');
 
+  form.find('.enhanced-module-management').append(searchField).append(exportBtn).append(importBtn);
   form.find('.mass-toggle').append(disable).append(enable);
 
   let disableAll = html.find('.disable-all-modules');
@@ -166,6 +176,66 @@ Hooks.on("renderModuleManagement", (app, html) => {
     e.preventDefault();
     var checkbox = $('#module-management').find('.package input[type="checkbox"]');
     checkbox.prop("checked", true);
+  });
+
+  // export module list
+  let modules = '';
+
+  let exportButton = form.find('.modules-export');
+  let importButton = form.find('.modules-import');
+  let exportMsg = form.find('.modal');
+  let exportCopyButton = form.find('.modules-export-copy');
+  let importConfirmButton = form.find('.modules-import-confirm');
+
+  exportButton.on('click', function(e){
+    e.preventDefault();
+    let moduleList = $('#module-list input[checked]');
+
+    for(let i = 0; i < moduleList.length; i++){
+      modules += moduleList[i].attributes.name.value+';';
+    }
+
+    $('#importExportModal').removeClass().addClass('export').find('#modalIO').val(modules);
+    $('#importExportModal').fadeIn();
+  });
+
+  exportCopyButton.on('click', function(e){
+    e.preventDefault();
+    $("#modalIO").select();
+    document.execCommand('copy');
+    $('#importExportModal #exportToast').fadeIn();
+    return false;
+  });
+
+  $('#importExportModal #close').on('click', function(e){
+    e.preventDefault();
+    $('#importExportModal').fadeOut(function(){
+      $('#modalIO').val('');
+      $('#importExportModal #exportToast').hide();
+    });
+  });
+
+  // open import input
+  importButton.on('click', function(e){
+    e.preventDefault();
+    modules = '';
+    $('#importExportModal').removeClass().addClass('import').fadeIn();
+  });
+
+  // Activate all pasted Modules
+  importConfirmButton.on('click', function(e){
+    e.preventDefault();
+    let importPaste = $('#importExportModal #modalIO').val();
+    let modulesToImport = importPaste.replace(/\s/g,'').slice(0, -1);
+    modulesToImport = modulesToImport.split(";");
+
+    for(let i = 0; i<modulesToImport.length; i++){
+      $('#module-list input[name="'+modulesToImport[i]+'"]').prop("checked", true);
+    }
+
+    $('#importExportModal').fadeOut(function(){
+      $('#modalIO').val('');
+    });
   });
 
 });
