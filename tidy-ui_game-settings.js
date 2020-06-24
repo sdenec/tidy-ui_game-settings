@@ -194,7 +194,14 @@ Hooks.on("renderModuleManagement", (app, html) => {
     moduleList = $('#module-list input[checked]');
 
     for(let i = 0; i < moduleList.length; i++){
-      modules += moduleList[i].attributes.name.value+';';
+      let moduleName = moduleList[i].attributes.name.value;
+      let version = $('input[name="'+moduleName+'"').parent().find('.version').text();
+      version = version.slice(8);
+      if(i == moduleList.length - 1){
+        modules += moduleName+'--v'+version+';';
+      } else {
+        modules += moduleName+'--v'+version+';\n';
+      }
     }
 
     $('#importExportModal').removeClass().addClass('export').find('#modalIO').val(modules);
@@ -229,7 +236,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
   importConfirmButton.on('click', function(e){
     e.preventDefault();
     let importPaste = $('#importExportModal #modalIO').val();
-    let modulesToImport = importPaste.replace(/\s/g,'').slice(0, -1);
+    let modulesToImport = importPaste.replace(/\s/g,'').replace(/--v.*?;/g, ';').slice(0, -1);
     modulesToImport = modulesToImport.split(";");
 
     for(let i = 0; i<modulesToImport.length; i++){
