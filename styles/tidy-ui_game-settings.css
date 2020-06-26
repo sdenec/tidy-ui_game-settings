@@ -403,6 +403,63 @@
   font-size: inherit !important;
 }
 
+/* ----------------------------------------- */
+/*  Module Seach Filter                      */
+/* ----------------------------------------- */
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField {
+  margin-bottom: 16px;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField,
+#module-management .enhanced-module-management #searchField {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid rgba(0,0,0,.3);
+  border-radius: 3px;
+  height: 34px;
+  margin-right: 2px;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #searchInput,
+#module-management .enhanced-module-management #searchField #searchInput {
+  outline: none;
+  padding: 0 38px 0 8px;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear,
+#module-management .enhanced-module-management #searchField #clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear.show,
+#module-management .enhanced-module-management #searchField #clear.show {
+  display: flex;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear i,
+#module-management .enhanced-module-management #searchField #clear i {
+  margin: 0;
+}
+
 
 /* ----------------------------------------- */
 /*  Module Export/Import                     */
@@ -412,13 +469,6 @@
   display: flex;
   justify-content: flex-end;
   margin-bottom: 8px;
-}
-
-#module-management .enhanced-module-management #searchField {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #module-management .enhanced-module-management button {

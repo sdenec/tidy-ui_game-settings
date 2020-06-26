@@ -4,9 +4,48 @@ var expandedModules = [];
 // hook on Settings Config Window
 Hooks.on("renderSettingsConfig", (app, html) => {
 
-
+  
   let active = html.find('.tab[data-tab="modules"] .settings-list');
   let list = '.tab[data-tab="modules"] .settings-list';
+// search field
+  let searchField = '<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="Start typing to filter modules"><button id="clear" title="clear search field"><i class="fas fa-times"></i></button></div>'
+  active.prepend(searchField);
+
+  // filter settings list
+  let searchInput = html.find('#searchField #searchInput');
+  let clearSearch = html.find('#searchField #clear');
+
+  searchInput.on('input', function(){
+    filterSettingsList(searchInput);
+  });
+
+  function filterSettingsList(input) {
+    let value = $(input).val();
+    if(value != ''){
+      clearSearch.addClass('show');
+    } else {
+      clearSearch.removeClass();
+    }
+
+    value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+    });
+
+    $(".settings-list .module-header").each(function() {
+      if ($(this).text().search(value) > -1) {
+        $(this).closest('.module-wrapper').show();
+      } else {
+        $(this).closest('.module-wrapper').hide();
+      }
+    });
+  }
+
+  // clear search
+  clearSearch.on('click', function(e){
+    e.preventDefault();
+    searchInput.val('');
+    filterSettingsList(searchInput);
+  });
 
   // wrap separat module settings
  	$(':not(.form-group) + .form-group, * > .form-group:first-of-type').
@@ -106,7 +145,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
   let importBtn = '<button class="modules-import" title="Import Module List"><i class="fas fa-file-import"></i></button>';
   let exportClose = '<button class="modules-export-copy">Copy to Clipboard</button>';
   let importConfirm = '<button class="modules-import-confirm">Activate Modules</button>';
-  let searchField = '<div id="searchField">This space is dedicated to @Norc ... until the next update ;)</div>'
+  let searchField = '<div id="searchField"><input id="searchInput" type="text" value="" placeholder="Start typing to filter modules"><button id="clear" title="clear search field"><i class="fas fa-times"></i></button></div>'
   let modalExport = '<div id="importExportModal"><div class="modal-wrap"><span id="close" title="close window"><i class="fas fa-times"></i></span><div id="exportToast"><p>Module list copied to clipboard - remember to save it!</p></div><textarea spellcheck="false" id="modalIO" placeholder="Paste your stored modules list here!"></textarea></div></div>';
 
   // add buttons
@@ -178,6 +217,41 @@ Hooks.on("renderModuleManagement", (app, html) => {
     checkbox.prop("checked", true);
   });
 
+  // filter module list
+  let searchInput = html.find('#searchField #searchInput');
+  let clearSearch = html.find('#searchField #clear');
+
+  searchInput.on('input', function(){
+    filterModuleList(searchInput);
+  });
+
+  function filterModuleList(input) {
+    let value = $(input).val();
+    if(value != ''){
+      clearSearch.addClass('show');
+    } else {
+      clearSearch.removeClass();
+    }
+    value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+    });
+
+    $("#module-list h3 span").each(function() {
+      if ($(this).text().search(value) > -1) {
+        $(this).closest('.package').show();
+      } else {
+        $(this).closest('.package').hide();
+      }
+    });
+  }
+
+  // clear search
+  clearSearch.on('click', function(e){
+    e.preventDefault();
+    searchInput.val('');
+    filterModuleList(searchInput);
+  });
+
   // export module list
   let modules = '';
   let moduleList = ''
@@ -188,6 +262,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
   let exportCopyButton = form.find('.modules-export-copy');
   let importConfirmButton = form.find('.modules-import-confirm');
 
+  // open export window and generate list
   exportButton.on('click', function(e){
     e.preventDefault();
     modules = '';
@@ -209,6 +284,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
     $('#importExportModal').fadeIn();
   });
 
+  // copy list to clipboard
   exportCopyButton.on('click', function(e){
     e.preventDefault();
     $("#modalIO").select();
@@ -217,6 +293,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
     return false;
   });
 
+  // close the import/export window
   $('#importExportModal #close').on('click', function(e){
     e.preventDefault();
     $('#importExportModal').fadeOut(function(){
@@ -232,7 +309,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
     $('#importExportModal').removeClass().addClass('import').fadeIn();
   });
 
-  // Activate all pasted Modules
+  // Activate all pasted Modules and close window
   importConfirmButton.on('click', function(e){
     e.preventDefault();
     let importPaste = $('#importExportModal #modalIO').val();
