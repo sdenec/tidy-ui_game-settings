@@ -232,12 +232,14 @@ Hooks.on("renderModuleManagement", (app, html) => {
     } else {
       clearSearch.removeClass();
     }
-    value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-      return letter.toUpperCase();
-    });
+    value = value.toLowerCase();
+    // value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+    //   return letter.toUpperCase();
+    // });
 
     $("#module-list h3 span").each(function() {
-      if ($(this).text().search(value) > -1) {
+      let searchIn = $(this).text().toLowerCase();
+      if (searchIn.search(value) > -1) {
         $(this).closest('.package').show();
       } else {
         $(this).closest('.package').hide();
