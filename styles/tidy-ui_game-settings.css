@@ -397,6 +397,7 @@
 #client-settings #config-tabs div.tab[data-tab="modules"] div.form-group button {
   order: initial !important;
   flex-basis: initial !important;
+  max-width: 100% !important;
 }
 
 #client-settings #config-tabs div.tab[data-tab="modules"] div.form-group input[type="text"] {
@@ -575,4 +576,20 @@
 #module-management #importExportModal.export button.modules-export-copy,
 #module-management #importExportModal.import button.modules-import-confirm {
   display: block;
+}
+
+/* ----------------------------------------- */
+/*  Color lib Support                        */
+/* ----------------------------------------- */
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper {
+  margin: 0 0 8px 30px;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper button {
+  margin: 0 !important;
+}
+
+#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper .picker_cancel button {
+  height: 100%;
 }
