@@ -48,7 +48,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   });
 
   // wrap separat module settings
- 	$(':not(.form-group) + .form-group, * > .form-group:first-of-type').
+ 	html.find(':not(.form-group) + .form-group, * > .form-group:first-of-type').
     each(function() {
       $(this).
         nextUntil(':not(.form-group)').
