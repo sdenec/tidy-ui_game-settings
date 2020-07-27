@@ -31,7 +31,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
       return letter.toUpperCase();
     });
 
-    $(".settings-list .module-header").each(function() {
+    html.find(".settings-list .module-header").each(function() {
       if ($(this).text().search(value) > -1) {
         $(this).closest('.module-wrapper').show();
       } else {
@@ -57,7 +57,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     });
 
   // wrap module header and settings
-  $('.tab[data-tab="modules"] .module-header').each( function () {
+  html.find('.tab[data-tab="modules"] .module-header').each( function () {
     $(this).next('.module-settings-wrapper').addBack().wrapAll('<article class="module-wrapper"></article>');
   });
 
@@ -76,18 +76,18 @@ Hooks.on("renderSettingsConfig", (app, html) => {
           ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
   } 
 
-  $(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.tab[data-tab="modules"] .settings-list');
+  html.find(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.tab[data-tab="modules"] .settings-list');
 
 
   // add toggle icon
   let icon = "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>";
-  $('.tab[data-tab="modules"] h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
+  html.find('.tab[data-tab="modules"] h2.module-header').prepend("<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>");
 
   // hide module settings
-  $('.tab[data-tab="modules"] .module-header').next('.module-settings-wrapper').hide();
+  html.find('.tab[data-tab="modules"] .module-header').next('.module-settings-wrapper').hide();
 
   // toggle settings on click
-  $('.tab[data-tab="modules"] .module-header').on('click', function(){
+  html.find('.tab[data-tab="modules"] .module-header').on('click', function(){
     $(this).toggleClass('open');
     //
     // store module name in array
@@ -98,13 +98,13 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   });
 
   // toggle checkboxes
-  $('.form-group label').each(function(){
+  html.find('.form-group label').each(function(){
     if( $(this).next('div').find('input[type="checkbox"]').length ){
       $(this).wrapInner('<span>')
     }
   });
 
-  $('.form-group label span').on('click', function(){
+  html.find('.form-group label span').on('click', function(){
     var checkbox = $(this).parent().parent().find('input[type="checkbox"]');
     checkbox.prop("checked", !checkbox.prop("checked"));
   });
@@ -114,8 +114,8 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     // console.log('something in array');
     for(var i=0; i<expandedModules.length; i++){
       var moduleToExpand = expandedModules[i];
-      $('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-header').addClass('open');
-      $('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-settings-wrapper').show();
+      html.find('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-header').addClass('open');
+      html.find('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-settings-wrapper').show();
     }
   }
 
@@ -177,7 +177,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
           ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
   } 
 
-  $("#module-list li.package").sort(Ascending_sort).appendTo('#module-list'); 
+  html.find("#module-list li.package").sort(Ascending_sort).appendTo('#module-list'); 
 
   // checkbox toggle
   title.wrapInner('<span>');
@@ -237,7 +237,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
     //   return letter.toUpperCase();
     // });
 
-    $("#module-list h3 span").each(function() {
+    html.find("#module-list h3 span").each(function() {
       let searchIn = $(this).text().toLowerCase();
       if (searchIn.search(value) > -1) {
         $(this).closest('.package').show();
@@ -281,26 +281,26 @@ Hooks.on("renderModuleManagement", (app, html) => {
       }
     }
 
-    $('#importExportModal').removeClass().addClass('export').find('#modalIO').val(modules);
+    html.find('#importExportModal').removeClass().addClass('export').find('#modalIO').val(modules);
 
-    $('#importExportModal').fadeIn();
+    html.find('#importExportModal').fadeIn();
   });
 
   // copy list to clipboard
   exportCopyButton.on('click', function(e){
     e.preventDefault();
-    $("#modalIO").select();
+    html.find("#modalIO").select();
     document.execCommand('copy');
-    $('#importExportModal #exportToast').fadeIn();
+    html.find('#importExportModal #exportToast').fadeIn();
     return false;
   });
 
   // close the import/export window
   $('#importExportModal #close').on('click', function(e){
     e.preventDefault();
-    $('#importExportModal').fadeOut(function(){
-      $('#modalIO').val('');
-      $('#importExportModal #exportToast').hide();
+    html.find('#importExportModal').fadeOut(function(){
+      html.find('#modalIO').val('');
+      html.find('#importExportModal #exportToast').hide();
     });
   });
 
@@ -308,22 +308,22 @@ Hooks.on("renderModuleManagement", (app, html) => {
   importButton.on('click', function(e){
     e.preventDefault();
     modules = '';
-    $('#importExportModal').removeClass().addClass('import').fadeIn();
+    html.find('#importExportModal').removeClass().addClass('import').fadeIn();
   });
 
   // Activate all pasted Modules and close window
   importConfirmButton.on('click', function(e){
     e.preventDefault();
-    let importPaste = $('#importExportModal #modalIO').val();
+    let importPaste = html.find('#importExportModal #modalIO').val();
     let modulesToImport = importPaste.replace(/\s/g,'').replace(/--v.*?;/g, ';').slice(0, -1);
     modulesToImport = modulesToImport.split(";");
 
     for(let i = 0; i<modulesToImport.length; i++){
-      $('#module-list input[name="'+modulesToImport[i]+'"]').prop("checked", true);
+      html.find('#module-list input[name="'+modulesToImport[i]+'"]').prop("checked", true);
     }
 
     $('#importExportModal').fadeOut(function(){
-      $('#modalIO').val('');
+      html.find('#modalIO').val('');
     });
   });
 
