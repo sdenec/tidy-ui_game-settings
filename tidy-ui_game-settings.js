@@ -7,7 +7,8 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   
   let active = html.find('.tab[data-tab="modules"] .settings-list');
   let list = '.tab[data-tab="modules"] .settings-list';
-// search field
+
+  // search field
   let searchField = '<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="Start typing to filter modules"><button id="clear" title="clear search field"><i class="fas fa-times"></i></button></div>'
   active.prepend(searchField);
 
@@ -137,37 +138,38 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 
 // hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
+
+  console.log('renderModuleManagement!');
+
   let form = html.find('form');
+  if (!html.hasClass('form')){
+    form = html;
+  }
+  
   let disable = '<button class="disable-all-modules">Uncheck all but Tidy UI modules</button>';
   let enable = '<button class="enable-all-modules">Check all modules</button>';
-  let infos = '<button class="toggle-infos">Toggle Module Information</button>';
   let exportBtn = '<button class="modules-export" title="Export Active Module List"><i class="fas fa-file-export"></i></button>';
   let importBtn = '<button class="modules-import" title="Import Module List"><i class="fas fa-file-import"></i></button>';
   let exportClose = '<button class="modules-export-copy">Copy to Clipboard</button>';
   let importConfirm = '<button class="modules-import-confirm">Activate Modules</button>';
-  let searchField = '<div id="searchField"><input id="searchInput" type="text" value="" placeholder="Start typing to filter modules"><button id="clear" title="clear search field"><i class="fas fa-times"></i></button></div>'
   let modalExport = '<div id="importExportModal"><div class="modal-wrap"><span id="close" title="close window"><i class="fas fa-times"></i></span><div id="exportToast"><p>Module list copied to clipboard - remember to save it!</p></div><textarea spellcheck="false" id="modalIO" placeholder="Paste your stored modules list here!"></textarea></div></div>';
 
   // add buttons
   form.prepend(modalExport);
   form.find('#importExportModal .modal-wrap').append(exportClose).append(importConfirm);
-  form.prepend(infos);
   form.prepend('<div class="enhanced-module-management"></div>');
-  form.prepend('<div class="mass-toggle"></div>');
 
-  form.find('.enhanced-module-management').append(searchField).append(exportBtn).append(importBtn);
-  form.find('.mass-toggle').append(disable).append(enable);
+  form.find('.enhanced-module-management').append(disable).append(enable).append(exportBtn).append(importBtn);
 
   let disableAll = html.find('.disable-all-modules');
   let enableAll = html.find('.enable-all-modules');
-  let toggleInfos = html.find('.toggle-infos');
 
   // sorting
   // clean module names
   let title = html.find('.package-title');
   title.each(function(){
     var titleString = $(this).text();
-    var cleanString = titleString.toLowerCase().replace(/[^\w\s]/g,'').replace(/  /g,' ').replace(/ /g,'-');
+    var cleanString = titleString.toLowerCase().replace(/[^\w\s]/g,'').replace(/\s/g,'');
     $(this).closest('.package').attr('data-sort-name', cleanString);
   });
 
@@ -178,30 +180,6 @@ Hooks.on("renderModuleManagement", (app, html) => {
   } 
 
   html.find("#module-list li.package").sort(Ascending_sort).appendTo('#module-list'); 
-
-  // checkbox toggle
-  title.wrapInner('<span>');
-
-  let inputTrigger = html.find('.package-title span');
-  let packageMetadata = html.find('.package-metadata');
-  let packageDescription = html.find('.package-description');
-
-  packageMetadata.hide();
-  packageDescription.hide();
-  form.addClass('infos-compressed');
-
-  inputTrigger.on('click', function(){
-    var checkbox = $(this).parent().siblings('input[type="checkbox"]');
-    checkbox.prop("checked", !checkbox.prop("checked"));
-  });
-
-  // toggle infos
-  toggleInfos.on('click', function(e){
-    e.preventDefault();
-    form.toggleClass('infos-compressed');
-    packageMetadata.toggle();
-    packageDescription.toggle();
-  });
 
   // remove all checkboxes except fvtt uii
   disableAll.on('click', function(e){
@@ -215,43 +193,6 @@ Hooks.on("renderModuleManagement", (app, html) => {
     e.preventDefault();
     var checkbox = $('#module-management').find('.package input[type="checkbox"]');
     checkbox.prop("checked", true);
-  });
-
-  // filter module list
-  let searchInput = html.find('#searchField #searchInput');
-  let clearSearch = html.find('#searchField #clear');
-
-  searchInput.on('input', function(){
-    filterModuleList(searchInput);
-  });
-
-  function filterModuleList(input) {
-    let value = $(input).val();
-    if(value != ''){
-      clearSearch.addClass('show');
-    } else {
-      clearSearch.removeClass();
-    }
-    value = value.toLowerCase();
-    // value = value.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-    //   return letter.toUpperCase();
-    // });
-
-    html.find("#module-list h3 span").each(function() {
-      let searchIn = $(this).text().toLowerCase();
-      if (searchIn.search(value) > -1) {
-        $(this).closest('.package').show();
-      } else {
-        $(this).closest('.package').hide();
-      }
-    });
-  }
-
-  // clear search
-  clearSearch.on('click', function(e){
-    e.preventDefault();
-    searchInput.val('');
-    filterModuleList(searchInput);
   });
 
   // export module list
@@ -272,7 +213,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
 
     for(let i = 0; i < moduleList.length; i++){
       let moduleName = moduleList[i].attributes.name.value;
-      let version = $('input[name="'+moduleName+'"').parent().find('.version').text();
+      let version = $('input[name="'+moduleName+'"').closest('.package-overview').find('.version').text();
       version = version.slice(8);
       if(i == moduleList.length - 1){
         modules += moduleName+'--v'+version+';';
