@@ -44,17 +44,23 @@
 /* Game Settings Window */
 
 #module-management .package-title {
-  flex: 1 1 100%;
-  line-height: 1.2;
+  /*flex: 1 1 100%;*/
+  line-height: 22px;
   margin: 0;
-  margin-left: calc(13px + 1rem);
-  margin-top: .25rem;
+  /*margin-left: 1rem;*/
+  /*margin-top: .25rem;*/
   text-decoration: none;
+  padding-left: 30px;
+  position: relative;
 }
 
 #module-management input.active {
   position: absolute;
-  transform-origin: 0 50%;
+  /*transform-origin: 0 50%;*/
+  margin-right: .5rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #client-settings {
@@ -273,6 +279,8 @@
   transition: border .3s ease, background .3s ease;
   box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 #module-management input[type="checkbox"]:hover {
@@ -299,7 +307,8 @@
 
 #module-management .package-list {
   padding: 0 1rem 1rem 1rem;
-  max-height: calc(100vh - 266px);
+  height: auto;
+  max-height: calc(100vh - 200px);
 }
 
 #module-management .package-list .package {
@@ -309,14 +318,18 @@
   border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
-#module-management .infos-compressed .package {
-  padding: .5rem 0;
+#module-management .package-list .package-metadata {
+  list-style: none;
 }
+
+/*#module-management .infos-compressed .package {
+  padding: .5rem 0;
+}*/
 
 #module-management .package-list .package:last-child {
   border: none;
 }
-
+/*
 #module-management .package-list .package .package-metadata,
 .package-list .package .package-overview .package-description,
 .package-list .package .package-tags {
@@ -325,21 +338,21 @@
   line-height: 1.5;
   margin-left: calc(13px + 1rem);
   margin-top: .25rem;
-}
+}*/
 
 
-#module-management .package-list .package .package-tags {
+/*#module-management .package-list .package .package-tags {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   text-align: left;
   order: 1;
   margin-top: .5rem;
-}
+}*/
 
-#module-management .infos-compressed .package .package-tags {
+/*#module-management .infos-compressed .package .package-tags {
   margin-top: .25rem;
-}
+}*/
 
 #module-management .package-list .package .tag {
   font-size: 10px;
@@ -347,12 +360,12 @@
   padding: 1px 4px 0;
   line-height: 16px;
 }
-
+/*
 #module-management .package-list .package-metadata {
   list-style: none;
-}
+}*/
 
-#module-management .package-title span,
+/*#module-management .package-title span,*/
 #module-management button {
   cursor: pointer;
 }
@@ -405,15 +418,10 @@
 }
 
 /* ----------------------------------------- */
-/*  Module Seach Filter                      */
+/*  Module Settings Seach Filter             */
 /* ----------------------------------------- */
 
 #client-settings #config-tabs div.tab[data-tab="modules"] #searchField {
-  margin-bottom: 16px;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField,
-#module-management .enhanced-module-management #searchField {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -423,10 +431,10 @@
   border-radius: 3px;
   height: 34px;
   margin-right: 2px;
+  margin-bottom: 16px;
 }
 
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #searchInput,
-#module-management .enhanced-module-management #searchField #searchInput {
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #searchInput {
   outline: none;
   padding: 0 38px 0 8px;
   height: 100%;
@@ -434,8 +442,7 @@
   border-radius: 3px;
 }
 
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear,
-#module-management .enhanced-module-management #searchField #clear {
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear {
   position: absolute;
   right: 8px;
   top: 50%;
@@ -451,13 +458,11 @@
   display: none;
 }
 
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear.show,
-#module-management .enhanced-module-management #searchField #clear.show {
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear.show {
   display: flex;
 }
 
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear i,
-#module-management .enhanced-module-management #searchField #clear i {
+#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear i {
   margin: 0;
 }
 
@@ -468,11 +473,24 @@
 
 #module-management .enhanced-module-management {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: 8px;
 }
 
 #module-management .enhanced-module-management button {
+  margin:0 .25rem;
+}
+
+#module-management .enhanced-module-management button:first-child {
+  margin-left:0;
+}
+
+#module-management .enhanced-module-management button:last-child {
+  margin-right:0;
+}
+
+#module-management .enhanced-module-management .modules-export,
+#module-management .enhanced-module-management .modules-import {
   flex: 0 0 50px;
 }
 
