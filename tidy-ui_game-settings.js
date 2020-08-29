@@ -270,7 +270,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
 
 
   if (game.settings.get("tidy-ui_game-settings", "hideDisableAll")) {
-    app.find('button[name="deactivate"]').css("display", "none");
+    html.find('button[name="deactivate"]').css("display", "none");
   };
 
 
