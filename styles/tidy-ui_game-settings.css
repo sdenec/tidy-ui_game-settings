@@ -45,22 +45,21 @@
 
 #module-management .package-title {
   /*flex: 1 1 100%;*/
-  line-height: 22px;
+  line-height: 20px;
   margin: 0;
   /*margin-left: 1rem;*/
   /*margin-top: .25rem;*/
   text-decoration: none;
-  padding-left: 30px;
+  padding-left: 8px;
   position: relative;
 }
 
 #module-management input.active {
-  position: absolute;
-  /*transform-origin: 0 50%;*/
-  margin-right: .5rem;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  margin: 0;
+  /*left: 0;*/
+  /*top: 0;*/
+  /*transform: translateY(-50%);*/
 }
 
 #client-settings {
@@ -356,7 +355,7 @@
 
 #module-management .package-list .package .tag {
   font-size: 10px;
-  margin: 0 .25rem 0 0;
+  margin: 0 .25rem .25rem 0;
   padding: 1px 4px 0;
   line-height: 16px;
 }
