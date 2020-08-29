@@ -44,23 +44,17 @@
 /* Game Settings Window */
 
 #module-management .package-title {
-  /*flex: 1 1 100%;*/
-  line-height: 22px;
+  line-height: 20px;
   margin: 0;
-  /*margin-left: 1rem;*/
-  /*margin-top: .25rem;*/
   text-decoration: none;
-  padding-left: 30px;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 #module-management input.active {
-  position: absolute;
-  /*transform-origin: 0 50%;*/
-  margin-right: .5rem;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  margin-right: 8px;
+  top: 0;
 }
 
 #client-settings {
@@ -320,52 +314,25 @@
 
 #module-management .package-list .package-metadata {
   list-style: none;
+  margin-top: 8px;
 }
-
-/*#module-management .infos-compressed .package {
-  padding: .5rem 0;
-}*/
 
 #module-management .package-list .package:last-child {
   border: none;
 }
-/*
-#module-management .package-list .package .package-metadata,
-.package-list .package .package-overview .package-description,
-.package-list .package .package-tags {
-  flex: 1 1 100%;
-  margin: 0;
-  line-height: 1.5;
-  margin-left: calc(13px + 1rem);
-  margin-top: .25rem;
-}*/
 
-
-/*#module-management .package-list .package .package-tags {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  text-align: left;
-  order: 1;
-  margin-top: .5rem;
-}*/
-
-/*#module-management .infos-compressed .package .package-tags {
-  margin-top: .25rem;
-}*/
+#module-management .package-list .package-description {
+  margin-left: 28px;
+  margin-top: 8px;
+}
 
 #module-management .package-list .package .tag {
   font-size: 10px;
-  margin: 0 .25rem 0 0;
+  margin: 0 .25rem .25rem 0;
   padding: 1px 4px 0;
   line-height: 16px;
 }
-/*
-#module-management .package-list .package-metadata {
-  list-style: none;
-}*/
 
-/*#module-management .package-title span,*/
 #module-management button {
   cursor: pointer;
 }
