@@ -3,8 +3,8 @@
   "title": "Tidy UI - Game Settings",
   "description": "User Interface Improvements for the Game Settings Window",
   "author": "sdenec",
-  "version": "0.1.16",
-  "minimumCoreVersion": "0.6.6",
+  "version": "0.1.17",
+  "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.6.6",
   "styles": [
   	"./styles/tidy-ui_game-settings.css"
