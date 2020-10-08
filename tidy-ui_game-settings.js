@@ -278,16 +278,16 @@ Hooks.on("renderModuleManagement", (app, html) => {
 
 Hooks.once("init", () => {
   game.settings.register("tidy-ui_game-settings", "moduleSettingsActive", {
-    name: "Always activate the Module Settings Tab",
-    hint: "If you happen to visit the Module Settings often you might want to set this option so you don't have to click to activate the Module Settings Tab.",
+    name: game.i18n.localize("TidyUI.moduleSettingsActive.name"),
+    hint: game.i18n.localize("TidyUI.moduleSettingsActive.hint"),
     scope: "world",
     config: true,
     default: false,
     type: Boolean
   });
   game.settings.register("tidy-ui_game-settings", "hideDisableAll", {
-    name: "Hide 'Disable All Modules' Button",
-    hint: "Check this if you want to hide the 'Disable All Modules' next to the 'Save' button.",
+    name: game.i18n.localize("TidyUI.hideDisableAll.name"),
+    hint: game.i18n.localize("TidyUI.hideDisableAll.hint"),
     scope: "world",
     config: true,
     default: false,

@@ -1,0 +1,10 @@
+{
+  "TidyUI.moduleSettingsActive" : {
+    "name" : "Always activate the Module Settings Tab.",
+    "hint" : "If you happen to visit the Module Settings often you might want to set this option so you don't have to click to activate the Module Settings Tab."
+  },
+  "TidyUI.hideDisableAll" : {
+    "name" : "Hide 'Disable All Modules' Button.",
+    "hint" : "Check this if you want to hide the 'Disable All Modules' next to the 'Save' button."
+  }
+}

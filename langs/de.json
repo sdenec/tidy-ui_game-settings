@@ -1,0 +1,10 @@
+{
+  "TidyUI.moduleSettingsActive" : {
+    "name" : "Immer Modul-Einstellungs-Tab öffnen.",
+    "hint" : "Wenn du häufig die Modul-Einstellungen änderst, kannst du mit dieser Option immer diesen Tab zuerst öffnen."
+  },
+  "TidyUI.hideDisableAll" : {
+    "name" : "'Alle Module Deaktivieren'-Button verstecken.",
+    "hint" : "Aktivieren, um den Button 'Alle Module Deaktivieren' neben dem 'Speichern'-Button zu verstecken."
+  }
+}
