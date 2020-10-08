@@ -1,0 +1,10 @@
+{
+  "TidyUI.moduleSettingsActive" : {
+    "name" : "Activar siempre la Pestaña de Ajustes del Módulo.",
+    "hint" : "Si entra a menudo en los Ajustes del Módulo es posible que le sea útil activar esta opción para no tener que estar continuamente activando la Pestaña de Ajustes del Módulo de forma manual."
+  },
+  "TidyUI.hideDisableAll" : {
+    "name" : "Ocultar el Botón 'Deshabilitar Todos los Módulos'.",
+    "hint" : "Actívelo si quiere ocultar la opción 'Deshabilitar Todos los Módulos' que hay junto al botón 'Guardar'."
+  }
+}
