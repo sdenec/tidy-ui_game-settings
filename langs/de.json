@@ -6,5 +6,16 @@
   "TidyUI.hideDisableAll" : {
     "name" : "'Alle Module Deaktivieren'-Button verstecken.",
     "hint" : "Aktivieren, um den Button 'Alle Module Deaktivieren' neben dem 'Speichern'-Button zu verstecken."
-  }
+  },
+  "TidyUI.uncheckAll" : "Alles außer Tidy UI deaktivieren",
+  "TidyUI.checkAll" : "Alle Module aktivieren",
+  "TidyUI.export" : "Aktive Modul-Liste exportieren",
+  "TidyUI.import" : "Modul-Liste importieren",
+  "TidyUI.toClipboard" : "In Zwischenablage kopieren",
+  "TidyUI.activate" : "Module aktivieren",
+  "TidyUI.close" : "Fenster schließen",
+  "TidyUI.notice" : "Modul-Liste erfolgreich in die Zwischenablage kopieren - Vergiss nicht sie zu speichern!",
+  "TidyUI.paste" : "Füge deine gespeicherte Modul-Liste hier ein!",
+  "TidyUI.search" : "Fange an zu tippen, um Module zu filtern",
+  "TidyUI.clear" : "Suchfeld leeren"
 }
