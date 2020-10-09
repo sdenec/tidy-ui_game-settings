@@ -6,5 +6,16 @@
   "TidyUI.hideDisableAll" : {
     "name" : "Ocultar el Botón 'Deshabilitar Todos los Módulos'.",
     "hint" : "Actívelo si quiere ocultar la opción 'Deshabilitar Todos los Módulos' que hay junto al botón 'Guardar'."
-  }
+  },
+  "TidyUI.uncheckAll" : "Desmarcar todo excepto módulos Tidy UI",
+  "TidyUI.checkAll" : "Marcar todos los módulos",
+  "TidyUI.export" : "Exportar Lista de Módulos Activos",
+  "TidyUI.import" : "Importar Lista de Módulos",
+  "TidyUI.toClipboard" :"Copiar al Portapapeles",
+  "TidyUI.activate" :"Activar Módulos",
+  "TidyUI.close" :"Cerrar ventana",
+  "TidyUI.notice" :"La lista de módulos ha sido copiada al portapapeles - ¡recuerde salvarla!",
+  "TidyUI.paste" :"¡Pegue aquí la lista de módulos almacenada!",
+  "TidyUI.search" :"Comience a escribir para filtrar",
+  "TidyUI.clear" :"Limpiar campo de búsqueda"
 }
