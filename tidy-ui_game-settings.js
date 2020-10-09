@@ -9,7 +9,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
   let list = '.tab[data-tab="modules"] .settings-list';
 
   // search field
-  let searchField = '<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="Start typing to filter modules"><button id="clear" title="clear search field"><i class="fas fa-times"></i></button></div>'
+  let searchField = `<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="${game.i18n.localize("TidyUI.search")}"><button id="clear" title="${game.i18n.localize("TidyUI.clear")}"><i class="fas fa-times"></i></button></div>`
   active.prepend(searchField);
 
   // filter settings list
@@ -146,13 +146,13 @@ Hooks.on("renderModuleManagement", (app, html) => {
     form = html;
   }
   
-  let disable = '<button class="disable-all-modules">Uncheck all but Tidy UI modules</button>';
-  let enable = '<button class="enable-all-modules">Check all modules</button>';
-  let exportBtn = '<button class="modules-export" title="Export Active Module List"><i class="fas fa-file-export"></i></button>';
-  let importBtn = '<button class="modules-import" title="Import Module List"><i class="fas fa-file-import"></i></button>';
-  let exportClose = '<button class="modules-export-copy">Copy to Clipboard</button>';
-  let importConfirm = '<button class="modules-import-confirm">Activate Modules</button>';
-  let modalExport = '<div id="importExportModal"><div class="modal-wrap"><span id="close" title="close window"><i class="fas fa-times"></i></span><div id="exportToast"><p>Module list copied to clipboard - remember to save it!</p></div><textarea spellcheck="false" id="modalIO" placeholder="Paste your stored modules list here!"></textarea></div></div>';
+  let disable = `<button class="disable-all-modules">${game.i18n.localize("TidyUI.uncheckAll")}</button>`;
+  let enable = `<button class="enable-all-modules">${game.i18n.localize("TidyUI.checkAll")}</button>`;
+  let exportBtn = `<button class="modules-export" title="${game.i18n.localize("TidyUI.export")}"><i class="fas fa-file-export"></i></button>`;
+  let importBtn = `<button class="modules-import" title="${game.i18n.localize("TidyUI.import")}"><i class="fas fa-file-import"></i></button>`;
+  let exportClose = `<button class="modules-export-copy">${game.i18n.localize("TidyUI.toClipboard")}</button>`;
+  let importConfirm = `<button class="modules-import-confirm">${game.i18n.localize("TidyUI.activate")}</button>`;
+  let modalExport = `<div id="importExportModal"><div class="modal-wrap"><span id="close" title="${game.i18n.localize("TidyUI.close")}"><i class="fas fa-times"></i></span><div id="exportToast"><p>${game.i18n.localize("TidyUI.notice")}</p></div><textarea spellcheck="false" id="modalIO" placeholder="${game.i18n.localize("TidyUI.paste")}"></textarea></div></div>`;
 
   // add buttons
   form.prepend(modalExport);
