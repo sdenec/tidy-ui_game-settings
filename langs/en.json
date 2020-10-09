@@ -13,9 +13,9 @@
   "TidyUI.import" : "Import Module List",
   "TidyUI.toClipboard" :"Copy to Clipboard",
   "TidyUI.activate" :"Activate Modules",
-  "TidyUI.close" :"close window",
+  "TidyUI.close" :"Close window",
   "TidyUI.notice" :"Module list copied to clipboard - remember to save it!",
   "TidyUI.paste" :"Paste your stored modules list here!",
   "TidyUI.search" :"Start typing to filter modules",
-  "TidyUI.clear" :"clear search field"
+  "TidyUI.clear" :"Clear search field"
 }
