@@ -25,6 +25,11 @@
       "lang": "es",
       "name": "Spanish",
       "path": "langs/es.json"
+    },
+    {
+      "lang": "zh-tw",
+      "name": "正體中文",
+      "path": "langs/zh-tw.json"
     }
   ],
   "url": "https://github.com/sdenec/tidy-ui_game-settings",
