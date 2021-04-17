@@ -134,6 +134,10 @@
   order: -1;
 }
 
+#client-settings section.content .submenu button label {
+  margin: unset;
+}
+
 #client-settings form .form-group label span,
 #client-settings section.content .submenu > label span {
   cursor: pointer;
