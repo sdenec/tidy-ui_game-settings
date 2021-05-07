@@ -1,20 +1,24 @@
 {
+  "I18N": {
+    "LANGUAGE": "Español",
+    "MAINTAINERS": "@Viriato139ac#0342"
+  },
   "TidyUI.moduleSettingsActive" : {
-    "name" : "Activar siempre la Pestaña de Ajustes del Módulo.",
-    "hint" : "Si entra a menudo en los Ajustes del Módulo es posible que le sea útil activar esta opción para no tener que estar continuamente activando la Pestaña de Ajustes del Módulo de forma manual."
+    "name" : "Activar siempre la pestaña de ajustes del módulo",
+    "hint" : "Si entra a menudo en los ajustes del módulo es posible que le sea útil activar esta opción para no tener que estar continuamente activando la Pestaña de Ajustes del Módulo de forma manual"
   },
   "TidyUI.hideDisableAll" : {
-    "name" : "Ocultar el Botón 'Deshabilitar Todos los Módulos'.",
-    "hint" : "Actívelo si quiere ocultar la opción 'Deshabilitar Todos los Módulos' que hay junto al botón 'Guardar'."
+    "name" : "Ocultar el botón 'Deshabilitar todos los módulos'",
+    "hint" : "Actívelo si quiere ocultar la opción 'Deshabilitar Todos los Módulos' que hay junto al botón 'Guardar'"
   },
   "TidyUI.uncheckAll" : "Desmarcar todo excepto módulos Tidy UI",
   "TidyUI.checkAll" : "Marcar todos los módulos",
-  "TidyUI.export" : "Exportar Lista de Módulos Activos",
-  "TidyUI.import" : "Importar Lista de Módulos",
-  "TidyUI.toClipboard" :"Copiar al Portapapeles",
-  "TidyUI.activate" :"Activar Módulos",
+  "TidyUI.export" : "Exportar lista de módulos activos",
+  "TidyUI.import" : "Importar lista de módulos",
+  "TidyUI.toClipboard" :"Copiar al portapapeles",
+  "TidyUI.activate" :"Activar módulos",
   "TidyUI.close" :"Cerrar ventana",
-  "TidyUI.notice" :"La lista de módulos ha sido copiada al portapapeles - ¡recuerde salvarla!",
+  "TidyUI.notice" :"La lista de módulos ha sido copiada al portapapeles - ¡recuerde guardarla!",
   "TidyUI.paste" :"¡Pegue aquí la lista de módulos almacenada!",
   "TidyUI.search" :"Comience a escribir para filtrar",
   "TidyUI.clear" :"Limpiar campo de búsqueda"
