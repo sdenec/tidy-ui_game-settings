@@ -134,6 +134,10 @@
   order: -1;
 }
 
+#client-settings section.content .submenu button label {
+  margin: unset;
+}
+
 #client-settings form .form-group label span,
 #client-settings section.content .submenu > label span {
   cursor: pointer;
@@ -187,7 +191,7 @@
 
 #client-settings.app.window-app.form #config-tabs .tab[data-tab="modules"] .settings-list h2.module-header {
   padding-bottom: .25rem;
-  margin: 1.5rem 0 .5rem 0;
+  margin: .5rem 0 .5rem 0;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -300,21 +304,24 @@
 }
 
 #module-management .package-list {
-  padding: 0 1rem 1rem 1rem;
+  padding: .25rem 0rem .25rem 0rem;
   height: auto;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 211px);
+  margin: .5rem 0 .5rem 0;
+  border-top: 1px solid #7a7971;
+  border-bottom: 1px solid #7a7971;
 }
 
 #module-management .package-list .package {
   position: relative;
-  padding: 1rem 0;
+  padding: .25rem 0 0 0;
   border-top: none;
   border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 #module-management .package-list .package-metadata {
   list-style: none;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 #module-management .package-list .package:last-child {
@@ -322,8 +329,7 @@
 }
 
 #module-management .package-list .package-description {
-  margin-left: 28px;
-  margin-top: 8px;
+  margin: 0 0 .5rem 28px;
 }
 
 #module-management .package-list .package .tag {

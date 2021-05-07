@@ -1,0 +1,21 @@
+{
+    "TidyUI.moduleSettingsActive" : {
+      "name" : "始終啓用Mod設定標籤.",
+      "hint" : "如果您會經常訪問Modules設定，則可能需要勾選此項，而不必點擊啓用Modules設定標籤."
+    },
+    "TidyUI.hideDisableAll" : {
+      "name" : "隱藏「禁用所有模塊」的按鈕。",
+      "hint" : "如果要隱藏「保存」按鈕旁邊的「禁用所有模塊」，請勾選此項。"
+    },
+    "TidyUI.uncheckAll" : "取消勾選除Tidy UI以外的所有Modules",
+    "TidyUI.checkAll" : "啓用所有Modules",
+    "TidyUI.export" : "滙出所有啓用中的Modules列表",
+    "TidyUI.import" : "滙入Modules列表",
+    "TidyUI.toClipboard" :"複製到剪貼板",
+    "TidyUI.activate" :"啓用中的Modules",
+    "TidyUI.close" :"關閉視窗",
+    "TidyUI.notice" :"Modules列表已複製到剪貼板 - 請記得保存!",
+    "TidyUI.paste" :"將您儲存了的Modules列表粘貼到這裡!",
+    "TidyUI.search" :"開始輸入以過濾Modules",
+    "TidyUI.clear" :"清除搜索文字"
+  }

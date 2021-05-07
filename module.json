@@ -3,9 +3,9 @@
   "title": "Tidy UI - Game Settings",
   "description": "User Interface Improvements for the Game Settings Window",
   "author": "sdenec",
-  "version": "0.1.20",
-  "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.7.5",
+  "version": "0.1.22",
+  "minimumCoreVersion": "0.7.0",
+  "compatibleCoreVersion": "0.7.9",
   "styles": [
   	"./styles/tidy-ui_game-settings.css"
   ],
@@ -25,6 +25,11 @@
       "lang": "es",
       "name": "Spanish",
       "path": "langs/es.json"
+    },
+    {
+      "lang": "zh-tw",
+      "name": "正體中文",
+      "path": "langs/zh-tw.json"
     }
   ],
   "url": "https://github.com/sdenec/tidy-ui_game-settings",
