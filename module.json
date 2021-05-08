@@ -5,7 +5,7 @@
   "author": "sdenec",
   "version": "0.1.22",
   "minimumCoreVersion": "0.7.0",
-  "compatibleCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.8.3",
   "styles": [
   	"./styles/tidy-ui_game-settings.css"
   ],

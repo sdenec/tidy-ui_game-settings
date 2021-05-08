@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.23
+
+- spanish translation update
+
 ## 0.1.22
 
 - taiwanese translation added
