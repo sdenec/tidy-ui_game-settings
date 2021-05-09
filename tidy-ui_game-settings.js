@@ -10,7 +10,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 
   // search field
   let searchField = `<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="${game.i18n.localize("TidyUI.search")}"><button id="clear" title="${game.i18n.localize("TidyUI.clear")}"><i class="fas fa-times"></i></button></div>`
-  active.prepend(searchField);
+  active.parent().prepend(searchField);
 
   // filter settings list
   let searchInput = html.find('#searchField #searchInput');
@@ -33,7 +33,11 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     });
 
     html.find(".settings-list .module-header").each(function() {
-      if ($(this).text().search(value) > -1) {
+      let name = $(this).text();
+      name = name.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+        return letter.toUpperCase();
+      });
+      if (name.search(value) > -1) {
         $(this).closest('.module-wrapper').show();
       } else {
         $(this).closest('.module-wrapper').hide();
@@ -112,7 +116,6 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 
   // Restore logged modules
   if(expandedModules.length > 0){
-    // console.log('something in array');
     for(var i=0; i<expandedModules.length; i++){
       var moduleToExpand = expandedModules[i];
       html.find('.module-wrapper[data-sort-name="'+ moduleToExpand +'"').find('.module-header').addClass('open');
@@ -139,7 +142,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 // hook on Module Management Window
 Hooks.on("renderModuleManagement", (app, html) => {
 
-  console.log('renderModuleManagement!');
+  // console.log('renderModuleManagement!');
 
   let form = html.find('form');
   if (!html.hasClass('form')){
