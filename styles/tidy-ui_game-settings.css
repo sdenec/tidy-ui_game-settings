@@ -106,6 +106,8 @@
 
 #client-settings section.content .settings-list {
   padding: 1rem;
+  max-height: calc(100vh - 185px);
+  border-top: 1px solid rgba(0, 0, 0, .3);
 }
 
 #client-settings form .form-group {
@@ -366,7 +368,8 @@
 
 /* Module Settings List */
 #client-settings section.content .settings-list {
-  max-height: calc(100vh - 130px);
+  max-height: calc(100vh - 185px);
+  border-top: 1px solid rgba(0, 0, 0, .3);
 }
 
 /* VTTA Patch */
@@ -395,15 +398,15 @@
 /* ----------------------------------------- */
 
 #client-settings #config-tabs div.tab[data-tab="modules"] #searchField {
-  flex: 1;
+  flex: 0 0 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  border: 1px solid rgba(0,0,0,.3);
+  border: 1px solid rgba(0, 0, 0, .3);
   border-radius: 3px;
-  height: 34px;
-  margin-right: 2px;
+  height: 30px;
+  margin: 16px;
   margin-bottom: 16px;
 }
 

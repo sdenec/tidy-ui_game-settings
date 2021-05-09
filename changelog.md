@@ -3,6 +3,8 @@
 ## 0.1.23
 
 - spanish translation update
+- fixed scroll position for module settings searchbar
+- fixed search results in module settings search
 
 ## 0.1.22
 
