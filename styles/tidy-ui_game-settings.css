@@ -14,6 +14,10 @@
   border-bottom: 1px solid #444;
 }
 
+#settings .ms2t-switch-container h2 {
+  margin: 6px 0 0 0;
+}
+
 #settings .game-system {
   margin-bottom: .5rem;
 }
@@ -49,6 +53,13 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+#module-management .package-list .package-title {
+  overflow: visible;
+  height: auto;
+  align-items: flex-start;
+  margin-right: 8px;
 }
 
 #module-management input.active {
@@ -548,16 +559,22 @@
   outline: none; 
 }
 
+#module-management #importExportModal .export-options,
+#module-management #importExportModal .import-options {
+  display: flex;
+  margin-left: -1px;
+}
 #module-management #importExportModal button {
   background: rgba(0,255,0,.4);
   border: none;
   border-radius: 1px solid #333;
   color: #efefef;
   border-radius: 0 0 3px 3px;
-  flex: 0 0 40px;
+  flex: 1;
   height: 40px;
   line-height: 40px;
   margin: 0;
+  margin-right: 1px;
   padding: 0; 
   display: none;
 }
@@ -567,8 +584,8 @@
   box-shadow: none;
 }
 
-#module-management #importExportModal.export button.modules-export-copy,
-#module-management #importExportModal.import button.modules-import-confirm {
+#module-management #importExportModal.export .export-options button,
+#module-management #importExportModal.import .import-options button {
   display: block;
 }
 
