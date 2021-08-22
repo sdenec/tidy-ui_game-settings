@@ -156,10 +156,11 @@ Hooks.on("renderModuleManagement", (app, html) => {
   let exportOptions = `<section class="export-options"><button class="modules-export-copy">${game.i18n.localize("TidyUI.toClipboard")}</button><button class="modules-download-json">${game.i18n.localize("TidyUI.toFile")}</button><section>`;
   let importOptions = `<section class="import-options"><button class="modules-import-json">${game.i18n.localize("TidyUI.fromFile")}</button><button class="modules-import-confirm">${game.i18n.localize("TidyUI.activate")}</button><section>`;
   let modalExport = `<div id="importExportModal"><div class="modal-wrap"><span id="close" title="${game.i18n.localize("TidyUI.close")}"><i class="fas fa-times"></i></span><div id="exportToast"><p>${game.i18n.localize("TidyUI.notice")}</p></div><textarea spellcheck="false" id="modalIO" placeholder="${game.i18n.localize("TidyUI.paste")}"></textarea></div></div>`;
+  let warningText =`<section class="warning"><span>${game.i18n.localize("TidyUI.warning")}</span> ${game.i18n.localize("TidyUI.instruction")}<section>`;
 
   // add buttons
   form.prepend(modalExport);
-  form.find('#importExportModal .modal-wrap').append(exportOptions, importOptions);
+  form.find('#importExportModal .modal-wrap').append(warningText, exportOptions, importOptions);
   form.prepend('<div class="enhanced-module-management"></div>');
 
   form.find('.enhanced-module-management').append(disable, enable, exportBtn, importBtn);

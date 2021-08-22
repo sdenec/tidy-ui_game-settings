@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.25
+- warning on new version changes
+- better worded button names
+
 ## 0.1.24
 
 - compatibility version update

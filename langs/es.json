@@ -16,12 +16,14 @@
   "TidyUI.export" : "Exportar lista de módulos activos",
   "TidyUI.import" : "Importar lista de módulos",
   "TidyUI.toClipboard" :"copiar como texto",
-  "TidyUI.toFile" :"descarga de archivo JSON",
+  "TidyUI.toFile" :"guardar como archivo JSON",
   "TidyUI.fromFile" :"Importar archivo JSON",
   "TidyUI.activate" :"Activar módulos",
   "TidyUI.close" :"Cerrar ventana",
   "TidyUI.notice" :"La lista de módulos ha sido copiada al portapapeles - ¡recuerde guardarla!",
   "TidyUI.paste" :"¡Pegue aquí la lista de módulos almacenada!",
   "TidyUI.search" :"Comience a escribir para filtrar",
-  "TidyUI.clear" :"Limpiar campo de búsqueda"
+  "TidyUI.clear" :"Limpiar campo de búsqueda",
+  "TidyUI.warning" :"Warning:",
+  "TidyUI.instruction" : "In order to reimport your modules list you have to download the JSON file. Copy as text is only good for posting to Discord or alike. If you have saves in old text format it will still be recognized when you want to restore it."
 }

@@ -12,12 +12,14 @@
   "TidyUI.export" : "Aktive Modul-Liste exportieren",
   "TidyUI.import" : "Modul-Liste importieren",
   "TidyUI.toClipboard" : "Als Text kopieren",
-  "TidyUI.toFile" :"JSON-Datei herunterladen",
+  "TidyUI.toFile" :"Als JSON-Datei speichern",
   "TidyUI.fromFile" :"JSON-Datei importieren",
   "TidyUI.activate" : "Module aktivieren",
   "TidyUI.close" : "Fenster schließen",
   "TidyUI.notice" : "Modul-Liste erfolgreich in die Zwischenablage kopieren - Vergiss nicht sie zu speichern!",
   "TidyUI.paste" : "Füge deine gespeicherte Modul-Liste hier ein!",
   "TidyUI.search" : "Fange an zu tippen, um Module zu filtern",
-  "TidyUI.clear" : "Suchfeld leeren"
+  "TidyUI.clear" : "Suchfeld leeren",
+  "TidyUI.warning" :"Warnung:",
+  "TidyUI.instruction" : "Um die Liste reimportieren zu können muss sie als JSON gespeichert werden. Textformat ist nur nützlich, um es in Discord oder ähnlichem zu posten. Das alte Format kann weiterhin importiert werden."
 }

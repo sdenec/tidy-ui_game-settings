@@ -12,12 +12,14 @@
     "TidyUI.export" : "滙出所有啓用中的Modules列表",
     "TidyUI.import" : "滙入Modules列表",
     "TidyUI.toClipboard" :"Copy as text",
-    "TidyUI.toFile" :"Download JSON file",
+    "TidyUI.toFile" :"Save as JSON file",
     "TidyUI.fromFile" :"Import JSON file",
     "TidyUI.activate" :"啓用中的Modules",
     "TidyUI.close" :"關閉視窗",
     "TidyUI.notice" :"Modules列表已複製到剪貼板 - 請記得保存!",
     "TidyUI.paste" :"將您儲存了的Modules列表粘貼到這裡!",
     "TidyUI.search" :"開始輸入以過濾Modules",
-    "TidyUI.clear" :"清除搜索文字"
+    "TidyUI.clear" :"清除搜索文字",
+    "TidyUI.warning" :"Warning:",
+    "TidyUI.instruction" : "In order to reimport your modules list you have to download the JSON file. Copy as text is only good for posting to Discord or alike. If you have saves in old text format it will still be recognized when you want to restore it."
   }

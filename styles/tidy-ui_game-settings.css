@@ -487,10 +487,24 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 250px;
+  height: 400px;
   display: none;
   z-index: 1000;
 }
+
+#module-management .warning {
+  background: rgba(255, 120, 0, 1);
+  padding: 8px;
+  font-size: 11px;
+  margin: 8px 0;
+  color: #fff;
+  border-radius: 3px;
+}
+
+#module-management .warning span {
+  font-weight: 600;
+}
+
 
 #module-management #importExportModal .modal-wrap {
   height: 100%;
