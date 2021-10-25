@@ -618,3 +618,38 @@
 #client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper .picker_cancel button {
   height: 100%;
 }
+
+/* ----------------------------------------- */
+/*  DSA 5e Support                        */
+/* ----------------------------------------- */
+
+.system-dsa5 #client-settings form {
+  height: 100%;
+}
+
+.system-dsa5 #client-settings #config-tabs {
+  overflow-y: scroll;
+}
+
+.system-dsa5 #client-settings .sheet-footer {
+  flex: 0 1px;
+  margin-top: 16px;
+}
+
+.system-dsa5 #module-management form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.system-dsa5 #module-management .notes {
+  flex: 0 1px;
+}
+
+.system-dsa5 #module-management .module-list {
+  max-height: 100%;
+}
+
+.system-dsa5 #module-management .package-list {
+  height: 100%;
+}
