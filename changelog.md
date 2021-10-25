@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.26
+- TDE/DSA 5 layout fix
+
 ## 0.1.25
 - warning on new version changes
 - better worded button names
