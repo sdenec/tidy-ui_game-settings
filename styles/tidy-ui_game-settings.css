@@ -658,11 +658,15 @@
   overflow: hidden;
 }
 
-.system-dsa5 #client-settings .settings-list {
-  overflow-y: scroll;
+.system-dsa5 #client-settings #config-tabs .tab {
+  height: 100%;
 }
 
 .system-dsa5 #client-settings section.content .settings-list {
-  max-height: calc(100vh - 272px);
+  overflow-y: scroll;
+  height: 100%;
 }
 
+.system-dsa5 #client-settings #config-tabs .tab[data-tab=modules] .settings-list {
+  max-height: calc(100vh - 272px);
+}

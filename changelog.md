@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.27
+## 0.1.27 / 0.1.28
 - TDE/DSA 5 layout fix
 
 ## 0.1.26
