@@ -81,7 +81,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
           ($(a).attr('data-sort-name').toUpperCase()) ? 1 : -1;  
   } 
 
-  html.find(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo('.tab[data-tab="modules"] .settings-list');
+  html.find(".settings-list article.module-wrapper").sort(Ascending_sort).appendTo(active);
 
 
   // add toggle icon
@@ -111,7 +111,7 @@ Hooks.on("renderSettingsConfig", (app, html) => {
 
   html.find('.form-group label span').on('click', function(){
     var checkbox = $(this).parent().parent().find('input[type="checkbox"]');
-    checkbox.prop("checked", !checkbox.prop("checked"));
+    checkbox.click();
   });
 
   // Restore logged modules
