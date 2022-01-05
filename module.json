@@ -3,7 +3,7 @@
   "title": "Tidy UI - Game Settings",
   "description": "User Interface Improvements for the Game Settings Window",
   "author": "sdenec",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "minimumCoreVersion": "0.7.0",
   "compatibleCoreVersion": "9",
   "styles": [
@@ -32,7 +32,7 @@
       "path": "langs/zh-tw.json"
     },
     {
-      "lang": "ja.json",
+      "lang": "ja",
       "name": "日本語",
       "path": "langs/ja.json"
     }

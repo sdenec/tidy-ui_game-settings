@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.30
+- module json fix (maybe will fix install pre v9)
+
 ## 0.1.29
 - v9 compatibility
 - disabled checkboxes are now greyed out
