@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.29
+- v9 compatibility
+
 ## 0.1.27 / 0.1.28
 - TDE/DSA 5 layout fix
 
