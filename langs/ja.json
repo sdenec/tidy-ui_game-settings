@@ -1,0 +1,26 @@
+{
+    "Localization Provided By": "Brother Sharp",
+    "TidyUI.moduleSettingsActive" : {
+      "name" : "モジュール設定をつねに表示する",
+      "hint" : "コンフィグ設定を開く時、モジュール設定に行くのが多い場合、この設定を有効化することで一番最初に表示するタブをモジュール設定に固定できます。"
+    },
+    "TidyUI.hideDisableAll" : {
+      "name" : "「すべてのModを非有効化」ボタンを無効化",
+      "hint" : "「モジュール更新」ボタンの隣にある「すべてのModを非有効化」ボタンを無効化します。"
+    },
+    "TidyUI.uncheckAll" : "TidyUI以外のすべてのModを非有効化",
+    "TidyUI.checkAll" : "すべてのモジュールを選択",
+    "TidyUI.export" : "有効化モジュールリストをエクスポート",
+    "TidyUI.import" : "モジュールリストをインポート",
+    "TidyUI.toClipboard" :"テキストコピー",
+    "TidyUI.toFile" :"Jsonファイルを保存",
+    "TidyUI.fromFile" :"Jsonファイルを読み込み",
+    "TidyUI.activate" :"モジュール更新",
+    "TidyUI.close" :"ウィンドウを閉じる",
+    "TidyUI.notice" :"モジュールリストをクリップボードにコピーしました、どこかにペーストしてね！",
+    "TidyUI.paste" :"モジュールリストのテキストをここに貼り付けてください（従来）、またはJsonファイルを読み込んでモジュールを起動させてください。",
+    "TidyUI.search" :"検索",
+    "TidyUI.clear" :"検索クリア",
+    "TidyUI.warning" :"警告：",
+    "TidyUI.instruction" : "モジュールリストを書き出したい場合はJsonファイルをお勧めします。テキストのコピーはDiscord等に表示するときのみに便利です。従来のテキストコピー方式でモジュールリストを出力していても適切に読み込まれますのでご安心ください。"
+  }
