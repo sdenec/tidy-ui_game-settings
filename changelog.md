@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.31
+
+- fixed css for tab display
+
 ## 0.1.30
 - module json fix (maybe will fix install pre v9)
 
