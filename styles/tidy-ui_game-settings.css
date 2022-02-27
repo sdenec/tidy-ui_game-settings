@@ -72,7 +72,6 @@
   min-height: 100vh;
 }
 
-
 #client-settings input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -113,6 +112,10 @@
 
 #client-settings.window-app .window-content {
   padding: 0;
+}
+
+#client-settings nav.tabs {
+  flex: 0;
 }
 
 #client-settings nav.tabs .item {
