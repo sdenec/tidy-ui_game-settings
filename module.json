@@ -5,10 +5,10 @@
   "description": "User Interface Improvements for the Game Settings Window",
   "authors": "sdenec",
   "version": "0.1.32",
-  "minimumCoreVersion": "10",
+  "minimumCoreVersion": "9",
   "compatibleCoreVersion": "10",
   "compatibility": {
-    "minimum": "10",
+    "minimum": "9",
     "verified": "10"
   },
   "styles": ["./styles/tidy-ui_game-settings.css"],
