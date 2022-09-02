@@ -2,16 +2,21 @@
 /*  Settings                                 */
 /* ----------------------------------------- */
 
-#settings {
-  padding: 0 1rem 1rem 1rem;
-  overflow-y: auto;
+#settings.settings-sidebar div {
+  margin: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-#settings h2 {
-  font-size: 1rem;
-  margin: 1rem 0 .5rem 0;
-  padding-bottom: .25rem;
-  border-bottom: 1px solid #444;
+#settings.settings-sidebar button {
+  margin: 0;
+  text-align: left;
+  padding: 0 8px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: baseline;
+  cursor: pointer;
 }
 
 #settings .ms2t-switch-container h2 {
@@ -19,24 +24,18 @@
 }
 
 #settings .game-system {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 #settings .game-system h4 {
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: normal;
-  color: rgba(255,255,255,.5);
-  margin: .25rem 0;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0.25rem 0;
 }
 
 #settings #combat-utility-belt h4 {
   margin-top: 1rem;
-}
-
-#settings button {
-  padding: .25rem .5rem;
-  margin: 0 0 .125rem 0;
-  cursor: pointer;
 }
 
 #settings button[data-action="logout"],
@@ -44,8 +43,11 @@
   margin-top: 1rem;
 }
 
-
 /* Game Settings Window */
+
+/* ----------------------------------------- */
+/*  Module Management                        */
+/* ----------------------------------------- */
 
 #module-management .package-title {
   line-height: 20px;
@@ -68,221 +70,6 @@
   top: 0;
 }
 
-#client-settings {
-  min-height: 100vh;
-}
-
-#client-settings input[type="checkbox"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid rgba(0,0,0,.4);
-  background: rgba(255,255,255,.6) ;
-  border-radius: 3px;
-  transition: border .3s ease, background .3s ease;
-  box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
-  cursor: pointer;
-}
-
-#client-settings input[type="checkbox"]:disabled {
-  opacity: .4;
-}
-
-#client-settings input[type="checkbox"]:not(:disabled):hover {
-  border: 1px solid rgba(0,0,0,.8);
-  background: rgba(255,255,255,.8) ;
-}
-
-#client-settings input[type="checkbox"]:checked {
-  border: 1px solid rgba(0,0,0,.4);
-}
-
-#client-settings input[type="checkbox"]:checked::after {
-  content: '';
-  display: block;
-  background: url(../img/check-solid.svg) center no-repeat;
-  background-size: cover;
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%); 
-}
-
-#client-settings.window-app .window-content {
-  padding: 0;
-}
-
-#client-settings nav.tabs {
-  flex: 0;
-}
-
-#client-settings nav.tabs .item {
-  padding: .25rem;
-}
-
-#client-settings section.content .settings-list {
-  padding: 1rem;
-  max-height: calc(100vh - 185px);
-  border-top: 1px solid rgba(0, 0, 0, .3);
-}
-
-#client-settings form .form-group {
-  margin: 0;
-  padding: .75rem;
-  align-items: flex-start;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-  border-top: 1px solid rgba(0,0,0,.1);
-  transition: background .3s ease;
-  position: relative;
-}
-
-#client-settings form .form-group:first-child,
-#client-settings form .module-header + .form-group {
-  border: none;
-}
-
-#client-settings form .form-group label,
-#client-settings section.content .submenu > label {
-  flex-grow: unset;
-  flex-basis: unset;
-  flex: 1 1 100%;
-  line-height: 1.2;
-  margin: 0 0 .25rem calc(13px + 1rem);
-  order: -1;
-}
-
-#client-settings section.content .submenu button label {
-  margin: unset;
-}
-
-#client-settings form .form-group label span,
-#client-settings section.content .submenu > label span {
-  cursor: pointer;
-}
-
-#client-settings form .form-group .form-fields {
-  margin: 0 0 .25rem calc(13px + 1rem);
-  justify-content: flex-start;
-}
-
-#client-settings section.content .tab[data-tab="core"] .submenu > button {
-  margin: 0 0 .25rem calc(13px + 1rem);
-}
-
-#client-settings section.content .tab[data-tab="modules"] .submenu > button {
-  line-height: 20px;
-}
-
-#client-settings form .notes {
-  flex: 0 1 100%;
-  margin: 0 0 0 calc(13px + 1rem);
-  order: 3;
-}
-
-#client-settings .sheet-footer {
-  padding: 0 .75rem .5rem .75rem;
-}
-
-#client-settings .sheet-footer button{
-  margin: 0 .25rem .5rem .25rem;
-}
-
-#client-settings .sheet-footer button[name="reset"],
-#client-settings .sheet-footer button[name="submit"] {
-  border: 1px solid rgba(0,0,0,.2);
-}
-
-#client-settings.window-app.minimized .window-header {
-  background: rgba(0,0,0,.25);
-}
-
-#client-settings.window-app .window-content .directory-header {
-  border-bottom: 1px solid rgba(0,0,0,.2);
-  padding: 1rem;
-}
-
-#client-settings.window-app .window-content .directory-list,
-#client-settings.window-app .window-content .directory-footer {
-  padding: 1rem;
-}
-
-#client-settings.app.window-app.form #config-tabs .tab[data-tab="modules"] .settings-list h2.module-header {
-  padding-bottom: .25rem;
-  margin: .5rem 0 .5rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list .module-wrapper:first-of-type h2.module-header {
-  margin-top: 0;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header span {
-  color: rgba(0,0,0,.5);
-  margin-right: .5rem;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header.open span .fa-plus-square,
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header span .fa-minus-square {
-  display: none;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list h2.module-header.open span .fa-minus-square {
-  display: unset;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group input[type="checkbox"] {
-  margin: 0;
-  transform-origin: 0 50%;
-  position: absolute;
-  top: .6rem;
-  left: 1rem;
-  cursor: pointer;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group button {
-  margin: 0 0 .25rem calc(13px + 1rem);
-  cursor: pointer;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group .form-field button {
-  margin: 0;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group button.file-picker {
-  margin: 0;
-  line-height: 20px;
-  border: 1px solid #111;
-  width: 40px;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group select {
-  flex-grow: unset;
-  flex-basis: 50%;
-  min-width: unset;
-  width: unset;
-  cursor: pointer;
-}
-
-#client-settings.app.window-app.form #config-tabs .settings-list div.form-group input[type="text"] {
-  flex-grow: unset;
-  flex-basis: 50%;
-  min-width: unset;
-  width: unset;
-}
-
-#client-settings .sheet-footer {
-  flex: 0;
-}
-
-/* ----------------------------------------- */
-/*  Module Management                        */
-/* ----------------------------------------- */
-
 #module-management {
   min-height: 100vh;
 }
@@ -291,27 +78,27 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: 1px solid rgba(0,0,0,.4);
-  background: rgba(255,255,255,.6) ;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
-  transition: border .3s ease, background .3s ease;
-  box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
+  transition: border 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
   cursor: pointer;
   width: 20px;
   height: 20px;
 }
 
 #module-management input[type="checkbox"]:hover {
-  border: 1px solid rgba(0,0,0,.8);
-  background: rgba(255,255,255,.8) ;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 #module-management input[type="checkbox"]:checked {
-  border: 1px solid rgba(0,0,0,.4);
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 #module-management input[type="checkbox"]:checked::after {
-  content: '';
+  content: "";
   display: block;
   background: url(../img/check-solid.svg) center no-repeat;
   background-size: cover;
@@ -320,23 +107,23 @@
   height: 16px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%); 
+  transform: translate(-50%, -50%);
 }
 
 #module-management .package-list {
-  padding: .25rem 0rem .25rem 0rem;
+  padding: 0.25rem 0rem 0.25rem 0rem;
   height: auto;
   max-height: calc(100vh - 211px);
-  margin: .5rem 0 .5rem 0;
+  margin: 0.5rem 0 0.5rem 0;
   border-top: 1px solid #7a7971;
   border-bottom: 1px solid #7a7971;
 }
 
 #module-management .package-list .package {
   position: relative;
-  padding: .25rem 0 0 0;
+  padding: 0.25rem 0 0 0;
   border-top: none;
-  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #module-management .package-list .package-metadata {
@@ -349,12 +136,12 @@
 }
 
 #module-management .package-list .package-description {
-  margin: 0 0 .5rem 28px;
+  margin: 0 0 0.5rem 28px;
 }
 
 #module-management .package-list .package .tag {
   font-size: 10px;
-  margin: 0 .25rem .25rem 0;
+  margin: 0 0.25rem 0.25rem 0;
   padding: 1px 4px 0;
   line-height: 16px;
 }
@@ -363,7 +150,6 @@
   cursor: pointer;
 }
 
-
 #module-management .mass-toggle {
   display: flex;
   justify-content: space-between;
@@ -371,95 +157,18 @@
 }
 
 #module-management .disable-all-modules {
-  background: rgba(255,0,0,.3);
-  border-width: 2px groove rgba(255,0,0,.5);
-  margin-right: .25rem;
+  background: rgba(255, 0, 0, 0.3);
+  border-width: 2px groove rgba(255, 0, 0, 0.5);
+  margin-right: 0.25rem;
   flex: 1;
 }
 
 #module-management .enable-all-modules {
-  background: rgba(0,255,0,.3);
-  border-width: 2px groove rgba(0,255,0,.5);
-  margin-left: .25rem;
+  background: rgba(0, 255, 0, 0.3);
+  border-width: 2px groove rgba(0, 255, 0, 0.5);
+  margin-left: 0.25rem;
   flex: 1;
 }
-
-/* Module Settings List */
-#client-settings section.content .settings-list {
-  max-height: calc(100vh - 185px);
-  border-top: 1px solid rgba(0, 0, 0, .3);
-}
-
-/* VTTA Patch */
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group {
-  align-items: flex-start !important;
-  justify-content: flex-end !important;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group label {
-  flex-basis: 100% !important;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group button {
-  order: initial !important;
-  flex-basis: initial !important;
-  max-width: 100% !important;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group input[type="text"] {
-  font-size: inherit !important;
-}
-
-/* ----------------------------------------- */
-/*  Module Settings Seach Filter             */
-/* ----------------------------------------- */
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField {
-  flex: 0 0 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, .3);
-  border-radius: 3px;
-  height: 30px;
-  margin: 16px;
-  margin-bottom: 16px;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #searchInput {
-  outline: none;
-  padding: 0 38px 0 8px;
-  height: 100%;
-  border: none;
-  border-radius: 3px;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translate(0, -50%);
-  width: 24px;
-  height: 24px;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 50%;
-  padding: 0;
-  margin: 0;
-  display: none;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear.show {
-  display: flex;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] #searchField #clear i {
-  margin: 0;
-}
-
 
 /* ----------------------------------------- */
 /*  Module Export/Import                     */
@@ -472,15 +181,15 @@
 }
 
 #module-management .enhanced-module-management button {
-  margin:0 .25rem;
+  margin: 0 0.25rem;
 }
 
 #module-management .enhanced-module-management button:first-child {
-  margin-left:0;
+  margin-left: 0;
 }
 
 #module-management .enhanced-module-management button:last-child {
-  margin-right:0;
+  margin-right: 0;
 }
 
 #module-management .enhanced-module-management .modules-export,
@@ -512,13 +221,12 @@
   font-weight: 600;
 }
 
-
 #module-management #importExportModal .modal-wrap {
   height: 100%;
   background: #444;
   border-radius: 5px;
   padding: 1rem;
-  box-shadow: 0 0 20px rgba(0,0,0,.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -533,19 +241,19 @@
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   position: absolute;
   top: 10px;
   right: -30px;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   z-index: 20;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #module-management #importExportModal .modal-wrap #exportToast {
   position: absolute;
-  background: rgba(100,255,150,.95);
+  background: rgba(100, 255, 150, 0.95);
   color: #121212;
   border-radius: 3px 3px 0 0;
   top: 1rem;
@@ -557,7 +265,6 @@
   display: none;
 }
 
-
 #module-management #importExportModal .modal-wrap #exportToast p {
   display: flex;
   height: 100%;
@@ -567,17 +274,17 @@
 
 #module-management #importExportModal #modalIO {
   background: #efefef;
-  border: none; 
+  border: none;
   border-radius: 3px 3px 0 0;
   flex: 1;
   padding: 1rem;
   overflow-y: auto;
-  box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
   resize: none;
 }
 
 #module-management #importExportModal #modalIO:focus {
-  outline: none; 
+  outline: none;
 }
 
 #module-management #importExportModal .export-options,
@@ -586,7 +293,7 @@
   margin-left: -1px;
 }
 #module-management #importExportModal button {
-  background: rgba(0,255,0,.4);
+  background: rgba(0, 255, 0, 0.4);
   border: none;
   border-radius: 1px solid #333;
   color: #efefef;
@@ -596,51 +303,18 @@
   line-height: 40px;
   margin: 0;
   margin-right: 1px;
-  padding: 0; 
+  padding: 0;
   display: none;
 }
 
 #module-management #importExportModal button:hover {
-  background: rgba(0,255,0,.3);
+  background: rgba(0, 255, 0, 0.3);
   box-shadow: none;
 }
 
 #module-management #importExportModal.export .export-options button,
 #module-management #importExportModal.import .import-options button {
   display: block;
-}
-
-/* ----------------------------------------- */
-/*  Color lib Support                        */
-/* ----------------------------------------- */
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper {
-  margin: 0 0 8px 30px;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper button {
-  margin: 0 !important;
-}
-
-#client-settings #config-tabs div.tab[data-tab="modules"] div.form-group .picker_wrapper .picker_cancel button {
-  height: 100%;
-}
-
-/* ----------------------------------------- */
-/*  DSA 5e Support                        */
-/* ----------------------------------------- */
-
-.system-dsa5 #client-settings form {
-  height: 100%;
-}
-
-.system-dsa5 #client-settings #config-tabs {
-  overflow-y: scroll;
-}
-
-.system-dsa5 #client-settings .sheet-footer {
-  flex: 0 1px;
-  margin-top: 16px;
 }
 
 .system-dsa5 #module-management form {
@@ -659,21 +333,4 @@
 
 .system-dsa5 #module-management .package-list {
   height: 100%;
-}
-
-.system-dsa5 #client-settings #config-tabs {
-  overflow: hidden;
-}
-
-.system-dsa5 #client-settings #config-tabs .tab {
-  height: 100%;
-}
-
-.system-dsa5 #client-settings section.content .settings-list {
-  overflow-y: scroll;
-  height: 100%;
-}
-
-.system-dsa5 #client-settings #config-tabs .tab[data-tab=modules] .settings-list {
-  max-height: calc(100vh - 272px);
 }

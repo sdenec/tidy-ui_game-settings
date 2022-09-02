@@ -1,5 +1,14 @@
 # Changelog
 
+# 0.1.4
+
+- removed settings page modifications due to core layout change
+- exclusive v10
+
+## 0.1.33
+
+- v10 compatibility fix
+
 ## 0.1.32
 
 - v10 compatibility
