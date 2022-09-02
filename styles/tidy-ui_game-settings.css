@@ -2,19 +2,14 @@
 /*  Settings                                 */
 /* ----------------------------------------- */
 
-#settings {
-  padding: 0 1rem 1rem 1rem;
-  overflow-y: auto;
-}
-
-.settings .settings-sidebar div {
+#settings.settings-sidebar div {
   margin: 12px 8px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.settings .settings-sidebar button {
+#settings.settings-sidebar button {
   margin: 0;
   text-align: left;
   padding: 0 8px;
@@ -22,13 +17,6 @@
   grid-template-columns: 24px 1fr;
   align-items: baseline;
   cursor: pointer;
-}
-
-#settings h2 {
-  font-size: 1rem;
-  margin: 1rem 0 0.5rem 0;
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid #444;
 }
 
 #settings .ms2t-switch-container h2 {

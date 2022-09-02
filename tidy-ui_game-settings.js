@@ -3,126 +3,17 @@ var expandedModules = [];
 
 // hook on Settings Config Window
 Hooks.on("renderSettingsConfig", (app, html) => {
-  let active = html.find('.tab[data-tab="modules"] .settings-list');
-  let list = '.tab[data-tab="modules"] .settings-list';
-
-  // search field
-  let searchField = `<div id="searchField"><input id="searchInput" type="text" spellcheck="false" placeholder="${game.i18n.localize(
-    "TidyUI.search"
-  )}"><button id="clear" title="${game.i18n.localize(
-    "TidyUI.clear"
-  )}"><i class="fas fa-times"></i></button></div>`;
-  active.parent().prepend(searchField);
-
-  // filter settings list
-  let searchInput = html.find("#searchField #searchInput");
-  let clearSearch = html.find("#searchField #clear");
-
-  searchInput.on("input", function () {
-    filterSettingsList(searchInput);
-  });
-
-  function filterSettingsList(input) {
-    let value = $(input).val();
-    if (value != "") {
-      clearSearch.addClass("show");
-    } else {
-      clearSearch.removeClass();
-    }
-
-    value = value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
-      return letter.toUpperCase();
-    });
-
-    html.find(".settings-list .module-header").each(function () {
-      let name = $(this).text();
-      name = name.toLowerCase().replace(/\b[a-z]/g, function (letter) {
-        return letter.toUpperCase();
-      });
-      if (name.search(value) > -1) {
-        $(this).closest(".module-wrapper").show();
-      } else {
-        $(this).closest(".module-wrapper").hide();
-      }
-    });
-  }
-
-  // clear search
-  clearSearch.on("click", function (e) {
-    e.preventDefault();
-    searchInput.val("");
-    filterSettingsList(searchInput);
-  });
-
   // wrap separat module settings
   html
-    .find(":not(.form-group) + .form-group, * > .form-group:first-of-type")
+    .find(
+      ":not(.sidebar) :not(.form-group) + .form-group, * :not(.sidebar) > .form-group:first-of-type"
+    )
     .each(function () {
       $(this)
         .nextUntil(":not(.form-group)")
         .addBack()
         .wrapAll('<section class="module-settings-wrapper" />');
     });
-
-  // wrap module header and settings
-  html.find('.tab[data-tab="modules"] .module-header').each(function () {
-    $(this)
-      .next(".module-settings-wrapper")
-      .addBack()
-      .wrapAll('<article class="module-wrapper"></article>');
-  });
-
-  // sorting
-  // clean module names
-  let title = html.find('.tab[data-tab="modules"] .module-header');
-  title.each(function () {
-    var titleString = $(this).text();
-    var cleanString = titleString
-      .toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .replace(/  /g, " ")
-      .replace(/ /g, "-");
-    $(this).closest(".module-wrapper").attr("data-sort-name", cleanString);
-  });
-
-  // sort by displayed module name
-  function Ascending_sort(a, b) {
-    return $(b).attr("data-sort-name").toUpperCase() <
-      $(a).attr("data-sort-name").toUpperCase()
-      ? 1
-      : -1;
-  }
-
-  html
-    .find(".settings-list article.module-wrapper")
-    .sort(Ascending_sort)
-    .appendTo(active);
-
-  // add toggle icon
-  let icon =
-    "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>";
-  html
-    .find('.tab[data-tab="modules"] h2.module-header')
-    .prepend(
-      "<span class='toggle-icon'><i class='far fa-plus-square'></i><i class='far fa-minus-square'></i></span>"
-    );
-
-  // hide module settings
-  html
-    .find('.tab[data-tab="modules"] .module-header')
-    .next(".module-settings-wrapper")
-    .hide();
-
-  // toggle settings on click
-  html.find('.tab[data-tab="modules"] .module-header').on("click", function () {
-    $(this).toggleClass("open");
-    //
-    // store module name in array
-    var moduleName = $(this).closest(".module-wrapper").attr("data-sort-name");
-    storeExpandedModule(moduleName);
-    //
-    $(this).next(".module-settings-wrapper").slideToggle(300);
-  });
 
   // toggle checkboxes
   html.find(".form-group label").each(function () {
@@ -135,31 +26,6 @@ Hooks.on("renderSettingsConfig", (app, html) => {
     var checkbox = $(this).parent().parent().find('input[type="checkbox"]');
     checkbox.click();
   });
-
-  // Restore logged modules
-  if (expandedModules.length > 0) {
-    for (var i = 0; i < expandedModules.length; i++) {
-      var moduleToExpand = expandedModules[i];
-      html
-        .find('.module-wrapper[data-sort-name="' + moduleToExpand + '"')
-        .find(".module-header")
-        .addClass("open");
-      html
-        .find('.module-wrapper[data-sort-name="' + moduleToExpand + '"')
-        .find(".module-settings-wrapper")
-        .show();
-    }
-  }
-
-  // Store expanded modules
-  function storeExpandedModule(moduleName) {
-    if (expandedModules.includes(moduleName)) {
-      var index = expandedModules.indexOf(moduleName);
-      expandedModules.splice(index, 1);
-    } else {
-      expandedModules.push(moduleName);
-    }
-  }
 });
 
 // hook on Module Management Window
@@ -247,7 +113,7 @@ Hooks.on("renderModuleManagement", (app, html) => {
   disableAll.on("click", function (e) {
     e.preventDefault();
     var checkbox = $("#module-management").find(
-      '.package:not([data-module-name="tidy-ui_game-settings"]):not([data-module-name="tidy-ui"]) input[type="checkbox"]'
+      '.package:not([data-module-id="tidy-ui_game-settings"]):not([data-module-id="tidy-ui"]) input[type="checkbox"]'
     );
     checkbox.prop("checked", false);
   });
@@ -346,9 +212,6 @@ Hooks.on("renderModuleManagement", (app, html) => {
       .find("#modalIO")
       .val(modules);
 
-    // console.log(json);
-    // html.find('#importExportModal').removeClass().addClass('export').find('#modalIO').val(JSON.stringify(json, null, 2));
-
     html.find("#importExportModal").fadeIn();
   });
 
@@ -388,17 +251,10 @@ Hooks.on("renderModuleManagement", (app, html) => {
   // download json file
   importJsonButton.on("click", function (e) {
     e.preventDefault();
-    // const moduleListFile = JSON.stringify(json, null, 2);
-    // saveDataToFile(moduleListFile, 'application/json', "moduleList.json");
     const input = $('<input type="file">');
     input.on("change", importGameSettings);
     input.trigger("click");
   });
-
-  // import JSON file
-  // function importGameSettingsQuick() {
-
-  // }
 
   function importGameSettings() {
     const file = this.files[0];
@@ -417,8 +273,6 @@ Hooks.on("renderModuleManagement", (app, html) => {
           modulesToImport.push(modulesToActivate["activeModules"][i]["id"]);
           modules += modulesToActivate["activeModules"][i]["title"] + "\n";
         }
-        // console.log(modulesToActivate);
-        // console.log(modulesToImport);
         html
           .find("#importExportModal")
           .removeClass()
