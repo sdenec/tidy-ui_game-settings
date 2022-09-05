@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.1.5
+
+- DSA display issue fix
+
 # 0.1.4
 
 - removed settings page modifications due to core layout change
