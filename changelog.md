@@ -1,5 +1,10 @@
 # Changelog
 
+# 0.1.51
+
+- Module manager Display fix
+- Forge Version fix
+
 # 0.1.5
 
 - DSA display issue fix

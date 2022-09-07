@@ -49,6 +49,21 @@
 /*  Module Management                        */
 /* ----------------------------------------- */
 
+#module-management {
+  min-height: 100vh;
+}
+
+#module-management .window-content form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#module-management .notes {
+  flex: 0 0 1px;
+  min-height: auto;
+}
+
 #module-management .package-title {
   line-height: 20px;
   margin: 0;
@@ -68,10 +83,6 @@
   position: relative;
   margin-right: 8px;
   top: 0;
-}
-
-#module-management {
-  min-height: 100vh;
 }
 
 #module-management input[type="checkbox"] {
@@ -113,7 +124,7 @@
 #module-management .package-list {
   padding: 0.25rem 0rem 0.25rem 0rem;
   height: auto;
-  max-height: calc(100vh - 211px);
+  max-height: 100%;
   margin: 0.5rem 0 0.5rem 0;
   border-top: 1px solid #7a7971;
   border-bottom: 1px solid #7a7971;
@@ -178,6 +189,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+  flex: 0 0 1px;
 }
 
 #module-management .enhanced-module-management button {
@@ -315,23 +327,4 @@
 #module-management #importExportModal.export .export-options button,
 #module-management #importExportModal.import .import-options button {
   display: block;
-}
-
-.system-dsa5 #module-management form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.system-dsa5 #module-management .notes {
-  flex: 0 0 1px;
-  min-height: auto;
-}
-
-.system-dsa5 #module-management .module-list {
-  max-height: 100%;
-}
-
-.system-dsa5 #module-management .package-list {
-  height: 100%;
 }
