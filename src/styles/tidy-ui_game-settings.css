@@ -38,7 +38,10 @@
   margin-top: 1rem;
 }
 
-#settings button[data-action="logout"],
+#settings button[data-action="invitations"] {
+  margin-bottom: 1rem;
+}
+
 #settings button[data-action="players"] {
   margin-top: 1rem;
 }
